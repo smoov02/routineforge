@@ -1,0 +1,113 @@
+{
+  "$comment": "Seed exercise library. CC0. Add entries by following data/schema.json. Run `node scripts/validate-data.mjs` after editing.",
+  "exercises": [
+    {
+      "id": "goblet-squat",
+      "name": "Goblet squat",
+      "aliases": ["goblet squats", "db goblet squat", "kettlebell goblet squat", "kb goblet squat"],
+      "pattern": "squat",
+      "equipment": "dumbbell",
+      "form": "Hold the dumbbell vertical against your chest, elbows tucked down. Feet about shoulder-width, toes slightly out. Sit down and back, chest tall, knees tracking over your toes; drive through mid-foot to stand.",
+      "pitfalls": "Don't let the knees cave inward, and don't round the lower back at the bottom. Only go as deep as stays smooth and pain-free."
+    },
+    {
+      "id": "db-floor-press",
+      "name": "DB floor press",
+      "aliases": ["dumbbell floor press", "floor press", "db bench press", "dumbbell bench press", "db chest press"],
+      "pattern": "horizontal-push",
+      "equipment": "dumbbell",
+      "form": "Lie on your back, knees bent, feet flat. Dumbbells stacked over your chest. Lower until your upper arms rest on the floor, pause for a beat, then press back up.",
+      "pitfalls": "Keep elbows about 45 degrees from your torso, not flared straight out. Don't bounce the elbows off the floor, and keep wrists straight."
+    },
+    {
+      "id": "romanian-deadlift",
+      "name": "Romanian deadlift",
+      "aliases": ["rdl", "romanian deadlifts", "db romanian deadlift", "dumbbell rdl", "stiff leg deadlift"],
+      "pattern": "hinge",
+      "equipment": "dumbbell",
+      "form": "Soft knees, dumbbells in front of your thighs. Push your hips back and let the weights slide down your legs with a flat back until you feel the hamstrings stretch, then drive your hips forward to stand tall.",
+      "pitfalls": "It's a hinge, not a squat. Don't round your back, and don't chase depth past where your hamstrings let you keep a flat back."
+    },
+    {
+      "id": "single-arm-row",
+      "name": "Single-arm DB row",
+      "aliases": ["one arm row", "single arm dumbbell row", "db row", "one arm dumbbell row", "supported row"],
+      "pattern": "horizontal-pull",
+      "equipment": "dumbbell",
+      "form": "Place one hand and the same-side knee on a bench, back flat and roughly parallel to the floor. Let the dumbbell hang, pull it toward your hip with the elbow leading, then lower under control.",
+      "pitfalls": "Don't twist your torso to heave the weight up, and don't shrug the shoulder toward your ear. Keep your neck neutral."
+    },
+    {
+      "id": "suitcase-carry",
+      "name": "Suitcase carry",
+      "aliases": ["suitcase carries", "single arm carry", "db carry", "loaded carry"],
+      "pattern": "carry",
+      "equipment": "dumbbell",
+      "form": "One dumbbell at your side, stand tall with shoulders level. Brace your core and walk with controlled steps, resisting the weight's pull to one side. Switch hands each set.",
+      "pitfalls": "Don't lean away from the weight to counterbalance it, and don't let that shoulder hike up. Keep your ribs down and keep breathing."
+    },
+    {
+      "id": "db-step-up",
+      "name": "DB step-up",
+      "aliases": ["step up", "step ups", "dumbbell step up", "box step up", "weighted step up"],
+      "pattern": "lunge",
+      "equipment": "dumbbell",
+      "form": "Use a box around knee height. Plant your whole foot on the box, drive through that heel to stand all the way up, then control the way back down. Stay tall through the torso.",
+      "pitfalls": "Don't push off the back foot to cheat the rep, and don't let the front knee collapse inward. Start with a low box."
+    },
+    {
+      "id": "overhead-press",
+      "name": "DB overhead press",
+      "aliases": ["ohp", "shoulder press", "db shoulder press", "dumbbell overhead press", "military press", "db press"],
+      "pattern": "vertical-push",
+      "equipment": "dumbbell",
+      "form": "Dumbbells at shoulder height, palms facing forward. Brace your core, press straight overhead until your arms are extended with biceps near your ears, then lower under control to the shoulders.",
+      "pitfalls": "Don't arch your lower back to press — squeeze your glutes and keep ribs down. Don't let the weights drift forward or shrug at the top."
+    },
+    {
+      "id": "reverse-lunge",
+      "name": "Reverse lunge",
+      "aliases": ["reverse lunges", "db reverse lunge", "back lunge", "step back lunge"],
+      "pattern": "lunge",
+      "equipment": "dumbbell",
+      "form": "Step one foot straight back and lower that knee toward the floor, keeping the front shin close to vertical. Drive through the front heel to return. Keep your torso upright.",
+      "pitfalls": "Don't crash the back knee into the floor. Keep the front knee tracking over the foot, and don't cross the stepping foot across your midline."
+    },
+    {
+      "id": "chest-supported-row",
+      "name": "Chest-supported row",
+      "aliases": ["incline row", "chest supported db row", "prone row", "bench supported row"],
+      "pattern": "horizontal-pull",
+      "equipment": "dumbbell",
+      "form": "Lie chest-down on an incline bench with the dumbbells hanging. Pull them up by driving your elbows back and squeezing your shoulder blades together, then lower fully each rep.",
+      "pitfalls": "Don't lift your chest off the pad to swing the weight up, and don't shrug. Control the lowering instead of dropping the dumbbells."
+    },
+    {
+      "id": "calf-raise",
+      "name": "Calf raise",
+      "aliases": ["calf raises", "standing calf raise", "heel raise", "db calf raise"],
+      "pattern": "calf",
+      "equipment": "bodyweight",
+      "form": "Balls of your feet on a step or the floor. Rise as high as you can onto your toes, pause at the top, then lower your heels slowly for a full stretch.",
+      "pitfalls": "Don't bounce out of the bottom — the slow lowering is where the work is. Hold something for balance if you need it."
+    },
+    {
+      "id": "dead-bug",
+      "name": "Dead bug",
+      "aliases": ["deadbug", "dead bugs", "dead-bug"],
+      "pattern": "core",
+      "equipment": "bodyweight",
+      "form": "On your back, arms reaching toward the ceiling and knees bent at 90 degrees. Press your lower back flat into the floor, then slowly extend the opposite arm and leg, return, and switch sides.",
+      "pitfalls": "Don't let your lower back arch up off the floor — that's the whole point of the drill. Move slowly and exhale as you extend."
+    },
+    {
+      "id": "pallof-press",
+      "name": "Pallof press",
+      "aliases": ["pallof", "anti rotation press", "cable pallof press", "band pallof press"],
+      "pattern": "core",
+      "equipment": "band or cable",
+      "form": "Stand side-on to a band or cable at chest height, hands at your sternum. Press straight out and resist the pull that wants to rotate you, then return slowly. Keep hips and shoulders square.",
+      "pitfalls": "Don't let your torso twist toward the anchor. Don't hold your breath, and keep your ribs down rather than leaning away."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "routineforge",
+  "version": "0.1.0",
+  "description": "Bring your own program. Import a workout spreadsheet, get a printable routine guide with copyright-free figures. Static, open, free.",
+  "type": "module",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "npx --yes serve . -l 5173",
+    "validate": "node scripts/validate-data.mjs",
+    "figures": "python3 scripts/build_figures.py"
+  },
+  "keywords": ["fitness", "workout", "open-source", "static-site", "cc0", "no-backend"],
+  "devDependencies": {}
+}

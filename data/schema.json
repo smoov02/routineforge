@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RoutineForge exercise entry",
+  "type": "object",
+  "required": ["id", "name", "pattern", "form", "pitfalls"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Stable kebab-case id. Also the filename of a bespoke figure: figures/exercises/<id>.svg (optional)."
+    },
+    "name": {
+      "type": "string",
+      "description": "Canonical display name."
+    },
+    "aliases": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": [],
+      "description": "Other ways people write this in a spreadsheet. Matching is case- and punctuation-insensitive, and common abbreviations (db, bb, ohp, rdl...) are expanded before matching, so you don't need to list those."
+    },
+    "pattern": {
+      "type": "string",
+      "description": "One of the ids in patterns.json. Drives the fallback figure and the grouping."
+    },
+    "equipment": {
+      "type": "string",
+      "default": "",
+      "description": "Free text, e.g. 'dumbbell', 'barbell', 'bodyweight'. Informational only."
+    },
+    "figure": {
+      "type": "string",
+      "description": "Optional. Override figure id. Defaults to <id> if a bespoke figure exists, else the pattern's figure."
+    },
+    "form": {
+      "type": "string",
+      "description": "2-3 sentences of best-form cues."
+    },
+    "pitfalls": {
+      "type": "string",
+      "description": "1-2 sentences naming the main thing(s) to avoid."
+    }
+  }
+}

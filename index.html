@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RoutineForge — bring your own program, get a printable guide</title>
+  <link rel="stylesheet" href="styles/app.css" />
+  <link rel="stylesheet" href="styles/print.css" media="print" />
+  <!-- Spreadsheet parsers (loaded as globals: window.Papa, window.XLSX).
+       Swap these for vendored copies in /vendor if you want a fully offline build. -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+  <header class="site-head no-print">
+    <h1>Routine<span class="accent">Forge</span></h1>
+    <p>Bring your own program. Import a spreadsheet, get a clean printable guide — free, open, no account.</p>
+  </header>
+
+  <main>
+    <section id="drop" class="dropzone no-print">
+      <p class="dz-title">Drop a CSV or XLSX here</p>
+      <p class="dz-sub">or</p>
+      <div class="dz-actions">
+        <label class="btn">
+          Choose file
+          <input id="file" type="file" accept=".csv,.tsv,.xlsx,.xls" hidden />
+        </label>
+        <button id="sample" class="btn btn-ghost" type="button">Try the sample routine</button>
+      </div>
+      <p class="dz-hint">A column named something like “Exercise” is all it needs. Optional: Sets, Reps, Notes.</p>
+    </section>
+
+    <p id="status" class="status no-print" role="status"></p>
+
+    <section id="output" hidden>
+      <div class="toolbar no-print">
+        <button id="print" class="btn" type="button">Save as PDF / print</button>
+      </div>
+      <div id="guide" class="guide"></div>
+    </section>
+  </main>
+
+  <footer class="site-foot no-print">
+    <p>Code: MIT · Exercise data &amp; figures: CC0. Not medical advice — clear new programs with a professional.</p>
+  </footer>
+
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>

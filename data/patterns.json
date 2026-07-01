@@ -1,0 +1,16 @@
+{
+  "$comment": "Movement patterns. Every exercise maps to one. The pattern's figure is the fallback when an exercise has no bespoke figure of its own. CC0.",
+  "patterns": [
+    { "id": "squat",            "label": "Squat",            "figure": "squat" },
+    { "id": "hinge",            "label": "Hip hinge",        "figure": "hinge" },
+    { "id": "lunge",            "label": "Lunge / split",    "figure": "lunge" },
+    { "id": "horizontal-push",  "label": "Horizontal push",  "figure": "horizontal-push" },
+    { "id": "horizontal-pull",  "label": "Horizontal pull",  "figure": "horizontal-pull" },
+    { "id": "vertical-push",    "label": "Vertical push",    "figure": "vertical-push" },
+    { "id": "vertical-pull",    "label": "Vertical pull",    "figure": "vertical-pull" },
+    { "id": "carry",            "label": "Loaded carry",     "figure": "carry" },
+    { "id": "core",             "label": "Core / anti-",     "figure": "core" },
+    { "id": "calf",             "label": "Calf / lower leg", "figure": "calf" },
+    { "id": "isolation",        "label": "Isolation",        "figure": "isolation" }
+  ]
+}

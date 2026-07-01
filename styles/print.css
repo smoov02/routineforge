@@ -1,0 +1,27 @@
+/* print.css — applied only when printing / Save as PDF. */
+@page { size: Letter; margin: 14mm; }
+
+.no-print { display: none !important; }
+
+body { background: #fff; color: #2c2c2a; font-size: 11px; }
+main { max-width: none; margin: 0; padding: 0; }
+
+#output { display: block; }
+
+.guide-head h2 { font-size: 20px; margin: 0 0 2px; }
+.guide-head .guide-sub { font-size: 11px; color: #5f5e5a; margin: 0 0 10px; }
+
+.ex-card {
+  page-break-inside: avoid;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 0.5px solid #ece9e0;
+}
+.ex-thumb { flex-basis: 88px; }
+.ex-thumb svg { width: 88px; height: 88px; }
+
+.ex-name { font-size: 13px; }
+.ex-reps { font-size: 11px; }
+.ex-line { font-size: 10.5px; margin-bottom: 4px; }
+.tag { font-size: 9px; }
+.lab { font-size: 8px; }
