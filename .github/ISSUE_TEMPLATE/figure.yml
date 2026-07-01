@@ -1,0 +1,38 @@
+name: Add or improve a figure
+description: Contribute a CC0 stick-figure SVG (archetype or per-exercise)
+title: "[figure] "
+labels: ["figure", "good first issue"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Figures are plain SVG, `viewBox 0 0 120 120`, no external references, CC0.
+        See `figures/README.md` for the style conventions (colors, stroke, ground line).
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Figure kind
+      options:
+        - "Bespoke (one exercise) → figures/exercises/<id>.svg"
+        - "Archetype (a movement pattern) → figures/patterns/<pattern>.svg"
+    validations:
+      required: true
+  - type: input
+    id: target
+    attributes:
+      label: Exercise id or pattern id
+      placeholder: front-squat  (or)  squat
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Anything about the pose, or paste the SVG here if you have it.
+  - type: checkboxes
+    id: cc0
+    attributes:
+      label: License
+      options:
+        - label: I dedicate this figure to the public domain under CC0.
+          required: true

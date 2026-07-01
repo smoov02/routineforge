@@ -1,0 +1,21 @@
+name: Bug report
+description: Something in the app or a match didn't work as expected
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: Include the exercise name or spreadsheet row if it's a matching issue.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+  - type: input
+    id: env
+    attributes:
+      label: Browser / OS
+      placeholder: Firefox 140 on Linux

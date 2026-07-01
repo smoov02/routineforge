@@ -1,0 +1,69 @@
+name: Add an exercise
+description: Propose a new exercise for the CC0 library
+title: "[exercise] "
+labels: ["exercise", "good first issue"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for growing the library! This maps to one object in `data/exercises.json`
+        (see `data/schema.json`). You don't need to list abbreviation variants like
+        `db`/`bb`/`ohp`/`rdl` — the matcher expands those automatically.
+  - type: input
+    id: name
+    attributes:
+      label: Canonical name
+      placeholder: Front squat
+    validations:
+      required: true
+  - type: input
+    id: aliases
+    attributes:
+      label: Aliases (comma-separated)
+      description: Other ways people write it in a spreadsheet.
+      placeholder: barbell front squat, front squats
+  - type: dropdown
+    id: pattern
+    attributes:
+      label: Movement pattern
+      description: Must be one of the ids in data/patterns.json.
+      options:
+        - squat
+        - hinge
+        - lunge
+        - horizontal-push
+        - horizontal-pull
+        - vertical-push
+        - vertical-pull
+        - carry
+        - core
+        - calf
+        - isolation
+    validations:
+      required: true
+  - type: input
+    id: equipment
+    attributes:
+      label: Equipment
+      placeholder: barbell
+  - type: textarea
+    id: form
+    attributes:
+      label: Form cues
+      description: 2–3 sentences of best-form coaching.
+    validations:
+      required: true
+  - type: textarea
+    id: pitfalls
+    attributes:
+      label: Pitfalls
+      description: 1–2 sentences on the main thing(s) to avoid.
+    validations:
+      required: true
+  - type: checkboxes
+    id: cc0
+    attributes:
+      label: License
+      options:
+        - label: I dedicate this contribution to the public domain under CC0.
+          required: true
