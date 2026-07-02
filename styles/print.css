@@ -25,3 +25,5 @@ main { max-width: none; margin: 0; padding: 0; }
 .ex-line { font-size: 10.5px; margin-bottom: 4px; }
 .tag { font-size: 9px; }
 .lab { font-size: 8px; }
+stick-figure { display: none; }
+.ex-thumb .fig-static { display: block; }

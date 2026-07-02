@@ -4,7 +4,7 @@
    Attributes: ex, stroke, accent, ground, speed. viewBox 0 0 120 120.
    On-screen enhancement only — static SVGs in figures/ remain the print path.
    Engine code: MIT (repo license). Rig coordinate data: CC0. */
-import "./figures-engine.js";  
+
 const SVGNS = "http://www.w3.org/2000/svg";
 const easeInOut = (t) => { return 0.5 - 0.5 * Math.cos(Math.PI * t); };
 
