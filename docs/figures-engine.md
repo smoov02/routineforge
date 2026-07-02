@@ -20,14 +20,37 @@ print and the component for screen:
 import "./figures-engine.js"; // registers <stick-figure>
 ```
 
-```html
-<stick-figure ex="goblet-squat"></stick-figure>
+`<stick-figure>` is a regular HTML element — once the module above has run, the tag
+works anywhere in the page body, exactly like an `<img>`. In RoutineForge it isn't
+hand-written into `index.html`; the render step emits one per exercise card, next to
+the static figure:
 
-<!-- themeable (e.g. for dark backgrounds) -->
+```html
+<div class="exercise-card">
+  <div class="fig" style="width: 96px; aspect-ratio: 1">
+    <img class="fig-static" src="figures/exercises/goblet-squat.svg" alt="">
+    <stick-figure ex="goblet-squat"></stick-figure>
+  </div>
+  <!-- name, form cues, pitfall ... -->
+</div>
+```
+
+Or created from JS in the render step:
+
+```js
+const fig = document.createElement("stick-figure");
+fig.setAttribute("ex", exercise.id);
+card.querySelector(".fig").append(fig);
+```
+
+Attributes for theming (e.g. dark backgrounds):
+
+```html
 <stick-figure ex="vertical-pull" stroke="#ece9dd" accent="#35c48d" ground="#4a473d"></stick-figure>
 ```
 
-The SVG fills its container — size it with CSS (`width`, `aspect-ratio: 1`).
+The SVG fills its container — size it with CSS on the element or a wrapper
+(`width`, `aspect-ratio: 1`), as in the card example above.
 
 ### Attributes
 
