@@ -1,7 +1,7 @@
 // render.js — turn matched rows into the printable guide DOM.
 
 import { figureFor } from "./figures.js";
-
+import { RIGS } from "./figures-engine.js";
 function el(tag, cls, html) {
   const n = document.createElement(tag);
   if (cls) n.className = cls;
@@ -39,8 +39,20 @@ export async function renderGuide(container, title, rows, patterns) {
     const card = el("div", "ex-card");
 
     const thumb = el("div", "ex-thumb");
-    thumb.innerHTML = await figureFor(match, patterns);
-    card.appendChild(thumb);
+thumb.innerHTML = `<span class="fig-static">${await figureFor(match, patterns)}</span>`;
+
+const exId = match.entry.id;
+const patId = match.entry.pattern;
+const rigId = exId && RIGS[exId] ? exId
+            : patId && RIGS[patId] ? patId
+            : null;
+if (rigId) {
+  const fig = document.createElement("stick-figure");
+  fig.setAttribute("ex", rigId);
+  thumb.appendChild(fig);
+  thumb.classList.add("has-anim");
+}
+card.appendChild(thumb);
 
     const body = el("div", "ex-body");
 
