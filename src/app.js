@@ -8,7 +8,7 @@ import { renderOverview, renderGuide } from "./render.js";
 // --- config you may want to edit ---------------------------------------------
 // Where your deployed Cloudflare Worker lives. Same-origin path if you route it
 // under your Pages domain, or a full https URL to the worker.
-const CREATOR_API = "/api/creator-style";
+const CREATOR_API = "https://routineforge-creator.markfmerchant.workers.dev";
 // Public Turnstile site key (safe to expose). Leave "" to skip the widget locally.
 const TURNSTILE_SITEKEY = "";
 // -----------------------------------------------------------------------------
