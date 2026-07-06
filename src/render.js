@@ -1,8 +1,13 @@
 // render.js — render a structured routine: an overview (weekly rhythm + workout
 // cards + notes) and a guide (thumbnail + form + pitfalls per exercise).
-import { RIGS } from "./figures-engine.js";   // adjust path if it's not in src/
+//
+// Figures: prefer the animated <stick-figure> web component (figures-engine.js)
+// when a rig exists for the exercise or its movement pattern; otherwise fall
+// back to the static SVG. The static SVG is also the print path.
+
 import { figureFor } from "./figures.js";
 import { matchRow } from "./match.js";
+import { RIGS } from "./figures-engine.js";   // registers <stick-figure> as a side effect
 
 function el(tag, cls, html) {
   const n = document.createElement(tag);
@@ -16,6 +21,17 @@ function repsLabel(ex) {
   const reps = ex.reps ? ex.reps.replace(/\s*reps?\s*/i, "").trim() : "";
   if (sets && reps) return `${sets} \u00d7 ${reps}`;
   return sets || reps || "";
+}
+
+// Exercise id that has a rig, or a rig sharing the movement pattern, else null.
+function rigExFor(match) {
+  if (match.entry && RIGS[match.entry.id]) return match.entry.id;
+  const pattern = match.pattern || (match.entry && match.entry.pattern);
+  if (pattern) {
+    const hit = Object.keys(RIGS).find((k) => RIGS[k].pattern === pattern);
+    if (hit) return hit;
+  }
+  return null;
 }
 
 // ---- overview (mirrors the one-page routine layout) -------------------------
@@ -74,16 +90,7 @@ function badge(match) {
     default: return `<span class="tag tag-warn">unknown \u2014 add it to the library</span>`;
   }
 }
-// Exercise id with a rig, or a rig that shares the movement pattern, else null.
-function rigExFor(match) {
-  if (match.entry && RIGS[match.entry.id]) return match.entry.id;
-  const pattern = match.pattern || (match.entry && match.entry.pattern);
-  if (pattern) {
-    const hit = Object.keys(RIGS).find((k) => RIGS[k].pattern === pattern);
-    if (hit) return hit;
-  }
-  return null;
-}
+
 export async function renderGuide(container, routine, index, patterns) {
   container.innerHTML = "";
   container.appendChild(el("h2", "guide-h", "Exercise guide"));
@@ -97,21 +104,22 @@ export async function renderGuide(container, routine, index, patterns) {
       const match = matchRow(ex.name, index);
       const card = el("div", "ex-card");
 
-const thumb = el("div", "ex-thumb");
-const rigEx = rigExFor(match);
-const staticSvg = await figureFor(match, patterns);   // print + fallback path
-if (rigEx) {
-  thumb.classList.add("has-anim");
-  const anim = document.createElement("stick-figure");
-  anim.setAttribute("ex", rigEx);                      // ← the attribute is "ex"
-  thumb.appendChild(anim);
-  const fallback = el("span", "fig-static");
-  fallback.innerHTML = staticSvg;
-  thumb.appendChild(fallback);
-} else {
-  thumb.innerHTML = staticSvg;
-}
-card.appendChild(thumb);
+      // thumbnail: animated <stick-figure> when a rig exists, static SVG otherwise
+      const thumb = el("div", "ex-thumb");
+      const rigEx = rigExFor(match);
+      const staticSvg = await figureFor(match, patterns);   // print + fallback path
+      if (rigEx) {
+        thumb.classList.add("has-anim");
+        const anim = document.createElement("stick-figure");
+        anim.setAttribute("ex", rigEx);
+        thumb.appendChild(anim);
+        const fallback = el("span", "fig-static");
+        fallback.innerHTML = staticSvg;
+        thumb.appendChild(fallback);
+      } else {
+        thumb.innerHTML = staticSvg;
+      }
+      card.appendChild(thumb);
 
       const body = el("div", "ex-body");
       const displayName = match.entry ? match.entry.name : ex.name;
