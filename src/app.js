@@ -1,46 +1,48 @@
-// app.js — wire the UI to the parse -> match -> render pipeline.
+// app.js — three ways in (spreadsheet, sample, creator) -> overview + guide.
 
 import { parseFile, parseCsvText } from "./parse.js";
 import { buildIndex, matchRow } from "./match.js";
-import { renderGuide } from "./render.js";
+import { buildRoutine } from "./builder.js";
+import { renderOverview, renderGuide } from "./render.js";
 
-const $ = (sel) => document.querySelector(sel);
+// --- config you may want to edit ---------------------------------------------
+// Where your deployed Cloudflare Worker lives. Same-origin path if you route it
+// under your Pages domain, or a full https URL to the worker.
+const CREATOR_API = "/api/creator-style";
+// Public Turnstile site key (safe to expose). Leave "" to skip the widget locally.
+const TURNSTILE_SITEKEY = "";
+// -----------------------------------------------------------------------------
 
-let INDEX = null;
-let PATTERNS = [];
+const CREATOR_DISCLAIMER =
+  "This is an original routine generated in a similar training style. It is independent and " +
+  "not affiliated with, endorsed by, or created by any named person. Not medical advice — " +
+  "clear new programs with a qualified professional.";
+
+const $ = (s) => document.querySelector(s);
+let INDEX = null, PATTERNS = [], EXERCISES = [];
 
 async function loadData() {
-  const [exRes, patRes] = await Promise.all([
+  const [ex, pat] = await Promise.all([
     fetch("data/exercises.json").then((r) => r.json()),
     fetch("data/patterns.json").then((r) => r.json()),
   ]);
-  INDEX = buildIndex(exRes.exercises);
-  PATTERNS = patRes.patterns;
+  EXERCISES = ex.exercises;
+  INDEX = buildIndex(EXERCISES);
+  PATTERNS = pat.patterns;
 }
 
-function matchAll(rows) {
-  return rows.map((row) => ({ row, match: matchRow(row.name, INDEX) }));
-}
-
-async function show(rows, title) {
-  if (!rows.length) {
-    $("#status").textContent = "No exercise rows found. Check that a column is named something like \u201cExercise\u201d.";
-    return;
-  }
-  const matched = matchAll(rows);
-  const miss = matched.filter((m) => m.match.confidence === "none").length;
-  await renderGuide($("#guide"), title, matched, PATTERNS);
+async function showRoutine(routine) {
+  renderOverview($("#overview"), routine);
+  await renderGuide($("#guide"), routine, INDEX, PATTERNS);
   $("#output").hidden = false;
-  $("#status").textContent =
-    `${rows.length} exercises${miss ? ` \u00b7 ${miss} not yet in the library` : ""}.`;
+  $("#status").textContent = "";
+  $("#overview").scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 async function handleFile(file) {
   $("#status").textContent = `Reading ${file.name}\u2026`;
   try {
-    const rows = await parseFile(file);
-    const title = file.name.replace(/\.[^.]+$/, "");
-    await show(rows, title);
+    await showRoutine(await parseFile(file));
   } catch (err) {
     console.error(err);
     $("#status").textContent = `Couldn't read that file: ${err.message}`;
@@ -50,32 +52,79 @@ async function handleFile(file) {
 async function loadSample() {
   $("#status").textContent = "Loading sample\u2026";
   const text = await fetch("samples/full-body-ab.csv").then((r) => r.text());
-  await show(parseCsvText(text), "Full-body A/B \u2014 sample");
+  await showRoutine(parseCsvText(text, "Full-body A/B \u2014 sample"));
+}
+
+// pull a plausible creator string out of a raw input or channel URL
+function cleanCreator(raw) {
+  const s = raw.trim();
+  const at = s.match(/@([A-Za-z0-9._-]+)/);
+  if (at) return at[1].replace(/[._-]+/g, " ").trim();
+  try {
+    const u = new URL(s);
+    const seg = u.pathname.split("/").filter(Boolean).pop();
+    if (seg) return decodeURIComponent(seg).replace(/[._-]+/g, " ").trim();
+  } catch { /* not a URL */ }
+  return s;
+}
+
+async function handleCreator() {
+  const raw = $("#creator-input").value;
+  if (!raw.trim()) return;
+  const creator = cleanCreator(raw);
+  $("#status").textContent = `Building a routine in ${creator}'s style\u2026`;
+
+  const token = window.turnstile && TURNSTILE_SITEKEY
+    ? window.turnstile.getResponse() : "";
+
+  try {
+    const res = await fetch(CREATOR_API, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ creator, token }),
+    });
+    if (!res.ok) throw new Error(`lookup failed (${res.status})`);
+    const params = await res.json();
+
+    const routine = buildRoutine({
+      ...params,
+      title: `A routine inspired by ${creator}'s style`,
+      source: "creator",
+      disclaimer: CREATOR_DISCLAIMER,
+    }, EXERCISES);
+
+    if (params.known === false) {
+      $("#status").textContent =
+        `Didn't recognize "${creator}" — here's a solid, balanced routine instead.`;
+    }
+    await showRoutine(routine);
+  } catch (err) {
+    console.error(err);
+    $("#status").textContent =
+      "Couldn't reach the creator lookup. Is the Worker deployed and CREATOR_API set? " +
+      "(You can still use a spreadsheet or the sample.)";
+  }
 }
 
 function init() {
   loadData().catch((e) => {
     $("#status").textContent =
-      "Couldn't load the exercise data. Are you running this through a local server? (see README)";
+      "Couldn't load the exercise data. Run this through a local server (see README).";
     console.error(e);
   });
 
-  $("#file").addEventListener("change", (e) => {
-    if (e.target.files[0]) handleFile(e.target.files[0]);
-  });
+  $("#file").addEventListener("change", (e) => e.target.files[0] && handleFile(e.target.files[0]));
   $("#sample").addEventListener("click", loadSample);
+  $("#creator-go").addEventListener("click", handleCreator);
+  $("#creator-input").addEventListener("keydown", (e) => { if (e.key === "Enter") handleCreator(); });
   $("#print").addEventListener("click", () => window.print());
 
-  // drag and drop
   const drop = $("#drop");
   ["dragover", "dragenter"].forEach((ev) =>
     drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.add("over"); }));
   ["dragleave", "drop"].forEach((ev) =>
     drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.remove("over"); }));
-  drop.addEventListener("drop", (e) => {
-    const f = e.dataTransfer.files[0];
-    if (f) handleFile(f);
-  });
+  drop.addEventListener("drop", (e) => e.dataTransfer.files[0] && handleFile(e.dataTransfer.files[0]));
 }
 
 document.addEventListener("DOMContentLoaded", init);

@@ -1,8 +1,7 @@
 // figures.js — resolve a match to an inline SVG string.
 // Order: bespoke figures/exercises/<id>.svg  ->  figures/patterns/<pattern>.svg  ->  placeholder.
 // Results are cached so each figure is fetched at most once.
-import "./figures-engine.js";
-import { RIGS } from "./figures-engine.js"; 
+
 const cache = new Map();
 
 async function load(path) {

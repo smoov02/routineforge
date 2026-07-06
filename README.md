@@ -84,3 +84,24 @@ Exercise naming/structure conventions were informed by public-domain datasets li
 [`yuhonas/free-exercise-db`](https://github.com/yuhonas/free-exercise-db) and
 [`wrkout/exercises.json`](https://github.com/wrkout/exercises.json). RoutineForge's
 own figures and copy are original and CC0.
+
+## Update — three ways in, an overview, and creator styles
+
+The app now takes three inputs and renders a **weekly/A-B overview** above the exercise guide:
+
+- **a · Your spreadsheet** — add an optional **Workout** (or **Day**) column and the app groups exercises into workouts and draws the weekly rhythm. Without it, you still get a flat guide.
+- **b · Sample** — a ready-made A/B routine.
+- **c · A creator's style** — paste any fitness channel or name and get an **original, unattributed** routine in a similar style, built from your own CC0 library, with a visible disclaimer.
+
+### How the creator path works (and what it costs)
+
+The routine itself is always assembled by the **deterministic builder** (`src/builder.js`) from your library — no third-party content is ever reproduced. The only AI step turns a creator name into a small set of **style parameters** (days/week, split, session length, goal, equipment). That step runs in a separate Cloudflare Worker (`worker/`) that holds your Anthropic key server-side.
+
+- Model: Claude Haiku 4.5, ungrounded. **~$0.003 per new creator**; cached creators are free.
+- Guards baked into the Worker: cache, per-IP + daily rate limits, a spend kill-switch, and optional Turnstile. See `worker/README.md` to deploy.
+- No Worker deployed? Paths **a** and **b** still work fully; only **c** needs it.
+
+Design note: because the output is always your own exercises and never attributed to anyone, a mistyped or non-fitness creator is a *quality* issue, not a legal one.
+
+### Added files
+`src/builder.js` (routine engine) · `worker/` (creator lookup + deploy guide). `parse.js` and `render.js` now speak a structured routine shape (overview + grouped guide).

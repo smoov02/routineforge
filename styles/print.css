@@ -25,5 +25,14 @@ main { max-width: none; margin: 0; padding: 0; }
 .ex-line { font-size: 10.5px; margin-bottom: 4px; }
 .tag { font-size: 9px; }
 .lab { font-size: 8px; }
-stick-figure { display: none; }
-.ex-thumb .fig-static { display: block; }
+
+/* overview in print */
+.overview { margin: 0 0 10px; }
+.ov-head h2 { font-size: 18px; }
+.disclaimer { font-size: 9px; background: #f4f2ec; }
+.week-cell { font-size: 9px; padding: 6px 2px; }
+.ov-card { break-inside: avoid; }
+.ov-ex { font-size: 10.5px; }
+.ov-note { font-size: 9.5px; }
+.guide-h { font-size: 16px; margin-top: 14px; }
+.guide-sec { font-size: 11px; page-break-after: avoid; }

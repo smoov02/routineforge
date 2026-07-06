@@ -6,29 +6,41 @@
   <title>RoutineForge — bring your own program, get a printable guide</title>
   <link rel="stylesheet" href="styles/app.css" />
   <link rel="stylesheet" href="styles/print.css" media="print" />
-  <!-- Spreadsheet parsers (loaded as globals: window.Papa, window.XLSX).
-       Swap these for vendored copies in /vendor if you want a fully offline build. -->
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <!-- Enable Turnstile by adding your site key in src/app.js and uncommenting: -->
+  <!-- <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script> -->
 </head>
 <body>
   <header class="site-head no-print">
     <h1>Routine<span class="accent">Forge</span></h1>
-    <p>Bring your own program. Import a spreadsheet, get a clean printable guide — free, open, no account.</p>
+    <p>Bring your own program. Get a clean, printable guide — free, open, no account.</p>
   </header>
 
   <main>
-    <section id="drop" class="dropzone no-print">
-      <p class="dz-title">Drop a CSV or XLSX here</p>
-      <p class="dz-sub">or</p>
-      <div class="dz-actions">
-        <label class="btn">
-          Choose file
-          <input id="file" type="file" accept=".csv,.tsv,.xlsx,.xls" hidden />
-        </label>
-        <button id="sample" class="btn btn-ghost" type="button">Try the sample routine</button>
+    <section class="entry no-print">
+      <div id="drop" class="card-entry dropzone">
+        <p class="ce-title">a · Your spreadsheet</p>
+        <p class="ce-sub">Drop a CSV/XLSX, or</p>
+        <label class="btn">Choose file<input id="file" type="file" accept=".csv,.tsv,.xlsx,.xls" hidden /></label>
+        <p class="ce-hint">Columns: Exercise (required); optional Sets, Reps, Notes, Workout.</p>
       </div>
-      <p class="dz-hint">A column named something like “Exercise” is all it needs. Optional: Sets, Reps, Notes.</p>
+
+      <div class="card-entry">
+        <p class="ce-title">b · Try a sample</p>
+        <p class="ce-sub">See it work instantly with a ready-made routine.</p>
+        <button id="sample" class="btn btn-ghost" type="button">Load sample routine</button>
+      </div>
+
+      <div class="card-entry">
+        <p class="ce-title">c · A creator's style</p>
+        <p class="ce-sub">Paste any fitness channel or name; get an original routine in a similar style.</p>
+        <div class="creator-row">
+          <input id="creator-input" type="text" placeholder="e.g. a channel URL or name" />
+          <button id="creator-go" class="btn" type="button">Build</button>
+        </div>
+        <p class="ce-hint">Independent &amp; unattributed — not affiliated with or endorsed by anyone named.</p>
+      </div>
     </section>
 
     <p id="status" class="status no-print" role="status"></p>
@@ -37,6 +49,7 @@
       <div class="toolbar no-print">
         <button id="print" class="btn" type="button">Save as PDF / print</button>
       </div>
+      <div id="overview" class="overview"></div>
       <div id="guide" class="guide"></div>
     </section>
   </main>

@@ -1,0 +1,21 @@
+name = "routineforge-creator"
+main = "src/index.js"
+compatibility_date = "2026-01-01"
+
+# Non-secret tuning. Adjust to taste.
+[vars]
+ALLOWED_ORIGIN = "https://YOURNAME.github.io"   # or your Pages/custom domain; "*" for local testing
+MAX_PER_DAY = "500"        # global daily kill-switch (lookups/day across everyone)
+MAX_PER_IP_HOUR = "20"     # per-visitor hourly cap
+CACHE_TTL = "2592000"      # cache a creator's params for 30 days
+MODEL = "claude-haiku-4-5-20251001"
+
+# KV for cache + rate-limit counters. Create it, then paste the id below:
+#   npx wrangler kv namespace create RF_KV
+[[kv_namespaces]]
+binding = "RF_KV"
+id = "PASTE_KV_NAMESPACE_ID_HERE"
+
+# Secrets are NOT stored here. Set them with:
+#   npx wrangler secret put ANTHROPIC_API_KEY
+#   npx wrangler secret put TURNSTILE_SECRET   (optional)
