@@ -29,7 +29,7 @@ main { max-width: 860px; margin: 0 auto; padding: 0 20px 40px; }
 .accent { color: var(--accent); }
 
 .dropzone {
-  margin-top: 22px;
+ 
   border: 1.5px dashed var(--line-strong);
   border-radius: 14px;
   background: var(--paper);
