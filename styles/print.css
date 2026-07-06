@@ -19,7 +19,8 @@ main { max-width: none; margin: 0; padding: 0; }
 }
 .ex-thumb { flex-basis: 88px; }
 .ex-thumb svg { width: 88px; height: 88px; }
-
+.ex-thumb.has-anim stick-figure { display: none; }
+.ex-thumb.has-anim .fig-static { display: block; }
 .ex-name { font-size: 13px; }
 .ex-reps { font-size: 11px; }
 .ex-line { font-size: 10.5px; margin-bottom: 4px; }
