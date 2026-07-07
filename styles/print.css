@@ -1,4 +1,5 @@
-/* print.css — applied only when printing / Save as PDF. */
+/* print.css — applied only when printing / Save as PDF.
+   Kept ink-on-paper regardless of the on-screen theme, so it always prints clean. */
 @page { size: Letter; margin: 14mm; }
 
 .no-print { display: none !important; }
