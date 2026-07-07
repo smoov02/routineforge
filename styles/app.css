@@ -46,8 +46,8 @@ main, header, footer, nav, .marquee { position: relative; z-index: 1; }
 main { max-width: 860px; margin: 0 auto; padding: 0 20px 40px; }
 
 /* ---- marquee ---- */
-.marquee { display: flex; justify-content: center; overflow: hidden; background: rgba(255,255,255,0.03); border-bottom: 1px solid var(--line-strong); }
-.marquee-track { display: flex; gap: 28px; white-space: nowrap; width: max-content; padding: 9px 0; animation: rf-marquee 18s linear infinite; }
+.marquee { overflow: hidden; padding: 0 40px; background: rgba(255,255,255,0.03); border-bottom: 1px solid var(--line-strong); }
+.marquee-track { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px 28px; padding: 12px 0; }
 .marquee-track span { font-family: var(--display); font-weight: 400; font-size: 15px; letter-spacing: .04em; text-transform: uppercase; color: var(--faint); }
 .marquee-track span:nth-child(3n+1) {
   background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
