@@ -9,7 +9,8 @@
     { "id": "vertical-push",    "label": "Vertical push",    "figure": "vertical-push" },
     { "id": "vertical-pull",    "label": "Vertical pull",    "figure": "vertical-pull" },
     { "id": "carry",            "label": "Loaded carry",     "figure": "carry" },
-    { "id": "core",             "label": "Core / anti-",     "figure": "core" },
+    { "id": "core",             "label": "Core (floor)",     "figure": "core" },
+    { "id": "core-standing",    "label": "Core (standing)",  "figure": "core-standing" },
     { "id": "calf",             "label": "Calf / lower leg", "figure": "calf" },
     { "id": "isolation",        "label": "Isolation",        "figure": "isolation" }
   ]

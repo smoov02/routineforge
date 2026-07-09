@@ -17,8 +17,9 @@ const patternIds = new Set(patterns.map((p) => p.id));
 
 // patterns must have a figure file
 for (const p of patterns) {
-  if (!existsSync(resolve(root, `figures/patterns/${p.figure}.svg`))) {
-    errors.push(`pattern "${p.id}" references missing figure figures/patterns/${p.figure}.svg`);
+  const fig = resolve(root, `figures/patterns/${p.figure}.svg`);
+  if (!existsSync(fig)) {
+    errors.push(`pattern "${p.id}": figure file missing — expected figures/patterns/${p.figure}.svg`);
   }
 }
 

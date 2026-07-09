@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+  <!-- ground -->
+  <line x1="26" y1="101" x2="98" y2="101" stroke-width="2" opacity="0.45"/>
+  <!-- anchor / machine post -->
+  <line x1="104" y1="34" x2="104" y2="80" stroke-width="3"/>
+  <!-- band / cable to hands -->
+  <line x1="102" y1="46" x2="88" y2="46" stroke-width="2.5" stroke-dasharray="2 4"/>
+  <!-- handle -->
+  <line x1="86" y1="40" x2="86" y2="52" stroke-width="3"/>
+  <!-- head -->
+  <circle cx="44" cy="22" r="8" fill="currentColor" stroke="none"/>
+  <!-- torso (upright = standing) -->
+  <line x1="44" y1="31" x2="44" y2="64"/>
+  <!-- legs -->
+  <line x1="44" y1="64" x2="36" y2="99"/>
+  <line x1="44" y1="64" x2="56" y2="99"/>
+  <!-- feet -->
+  <line x1="31" y1="99" x2="40" y2="99" stroke-width="3"/>
+  <line x1="52" y1="99" x2="61" y2="99" stroke-width="3"/>
+  <!-- arms pressed straight out to the handle -->
+  <line x1="44" y1="38" x2="85" y2="46"/>
+</svg>

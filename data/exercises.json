@@ -104,7 +104,7 @@
       "id": "pallof-press",
       "name": "Pallof press",
       "aliases": ["pallof", "anti rotation press", "cable pallof press", "band pallof press"],
-      "pattern": "core",
+      "pattern": "core-standing",
       "equipment": "band or cable",
       "form": "Stand side-on to a band or cable at chest height, hands at your sternum. Press straight out and resist the pull that wants to rotate you, then return slowly. Keep hips and shoulders square.",
       "pitfalls": "Don't let your torso twist toward the anchor. Don't hold your breath, and keep your ribs down rather than leaning away."
