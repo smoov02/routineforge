@@ -5,6 +5,9 @@ import { buildIndex, matchRow } from "./match.js";
 import { buildRoutine } from "./builder.js";
 import { renderOverview, renderGuide } from "./render.js";
 
+// The active mode's data folder. Step 2 makes this dynamic (read from
+// modes/index.json); for now strength loads directly.
+const MODE_BASE = "modes/strength";
 // --- config you may want to edit ---------------------------------------------
 // Where your deployed Cloudflare Worker lives. Same-origin path if you route it
 // under your Pages domain, or a full https URL to the worker.
@@ -12,7 +15,7 @@ const CREATOR_API = "https://routineforge-creator.markfmerchant.workers.dev";
 // Public Turnstile site key (safe to expose). Leave "" to skip the widget locally.
 const TURNSTILE_SITEKEY = "";
 // -----------------------------------------------------------------------------
-
+const FIGURES_BASE = `${MODE_BASE}/figures`;
 const CREATOR_DISCLAIMER =
   "This is an original routine generated in a similar training style. It is independent and " +
   "not affiliated with, endorsed by, or created by any named person. Not medical advice — " +
@@ -23,8 +26,8 @@ let INDEX = null, PATTERNS = [], EXERCISES = [];
 
 async function loadData() {
   const [ex, pat] = await Promise.all([
-    fetch("data/exercises.json").then((r) => r.json()),
-    fetch("data/patterns.json").then((r) => r.json()),
+    fetch(`${MODE_BASE}/exercises.json`).then((r) => r.json()),
+    fetch(`${MODE_BASE}/patterns.json`).then((r) => r.json()),
   ]);
   EXERCISES = ex.exercises;
   INDEX = buildIndex(EXERCISES);
@@ -33,7 +36,7 @@ async function loadData() {
 
 async function showRoutine(routine) {
   renderOverview($("#overview"), routine);
-  await renderGuide($("#guide"), routine, INDEX, PATTERNS);
+  await renderGuide($("#guide"), routine, INDEX, PATTERNS, FIGURES_BASE);
   $("#output").hidden = false;
   $("#status").textContent = "";
   $("#overview").scrollIntoView({ behavior: "smooth", block: "start" });

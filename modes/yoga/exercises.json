@@ -1,0 +1,31 @@
+{
+  "$comment": "Yoga library STUB \u2014 shows the reshaped item schema for a 'hold' mode: cue/easeoff prose keys (mapped in mode.json fields), pattern = pose family. The 'equipment' key stays fixed across modes; yoga's mode.json relabels it 'Props' via labels. Two entries as a template; fill the rest. CC0.",
+  "exercises": [
+    {
+      "id": "warrior-2",
+      "name": "Warrior II",
+      "aliases": [
+        "virabhadrasana ii",
+        "warrior 2",
+        "warrior two"
+      ],
+      "pattern": "standing",
+      "equipment": "none",
+      "cue": "Front knee stacked over the ankle and tracking toward the second toe; back foot parallel to the mat's back edge. Sink the hips, reach through both arms, soft shoulders, gaze over the front hand.",
+      "easeoff": "Shorten the stance if the front knee drifts past the ankle or the hips can't stay open. Come up higher rather than collapsing the chest forward."
+    },
+    {
+      "id": "downward-dog",
+      "name": "Downward-Facing Dog",
+      "aliases": [
+        "adho mukha svanasana",
+        "down dog",
+        "downward facing dog"
+      ],
+      "pattern": "standing",
+      "equipment": "none",
+      "cue": "Hands shoulder-width, feet hip-width, hips high into an inverted V. Press the floor away and let the spine lengthen; bend the knees generously to keep the back long.",
+      "easeoff": "Bend the knees and lift the heels if tight hamstrings round your back. Shorten the stance if the shoulders shrug toward the ears."
+    }
+  ]
+}

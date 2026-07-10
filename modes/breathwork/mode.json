@@ -1,0 +1,20 @@
+{
+  "$schema": "../_schema/mode.schema.json",
+  "id": "breathwork",
+  "label": "Breathwork",
+  "tagline": "Guided breathing sequences, printable and timed.",
+  "shape": "technique",
+  "dose": {
+    "primary":   { "key": "duration", "label": "Length", "unit": "min" },
+    "secondary": { "key": "pattern",  "label": "Pattern" }
+  },
+  "fields": {
+    "primary":   { "key": "howto",  "label": "How to" },
+    "secondary": { "key": "notice", "label": "What to notice" }
+  },
+  "taxonomy": "patterns.json",
+  "library":  "exercises.json",
+  "figures":  null,
+  "hero": null,
+  "theme": { "accent": "#56b6c2", "soft": "#56b6c222" }
+}

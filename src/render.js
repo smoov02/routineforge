@@ -91,7 +91,7 @@ function badge(match) {
   }
 }
 
-export async function renderGuide(container, routine, index, patterns) {
+export async function renderGuide(container, routine, index, patterns, figuresBase = "figures") {
   container.innerHTML = "";
   container.appendChild(el("h2", "guide-h", "Exercise guide"));
   container.appendChild(el("p", "guide-sub",
@@ -107,7 +107,7 @@ export async function renderGuide(container, routine, index, patterns) {
       // thumbnail: animated <stick-figure> when a rig exists, static SVG otherwise
       const thumb = el("div", "ex-thumb");
       const rigEx = rigExFor(match);
-      const staticSvg = await figureFor(match, patterns);   // print + fallback path
+      const staticSvg = await figureFor(match, patterns, figuresBase);   // print + fallback path
       if (rigEx) {
         thumb.classList.add("has-anim");
         const anim = document.createElement("stick-figure");

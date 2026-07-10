@@ -190,7 +190,6 @@ export const RIGS = {
       { footL: [50, 112], footR: [58, 112], hip: [54, 74], neck: [54, 46], head: [54, 36], elbow: [52, 64], hand: [52, 82] },
       { footL: [50, 112], footR: [58, 112], hip: [54, 74], neck: [54, 46], head: [54, 36], elbow: [52, 64], hand: [61, 53] }
     ], mode: "pp", period: 1700
-  }
 };
 
 // ---- interpolation -----------------------------------------------------

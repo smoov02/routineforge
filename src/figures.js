@@ -13,8 +13,8 @@ async function load(path) {
   return p;
 }
 
-// match: the object returned by matchRow(); patterns: array from patterns.json.
-export async function figureFor(match, patterns) {
+// match: from matchRow(); patterns: array from patterns.json; base: the mode's figures dir.
+export async function figureFor(match, patterns, base = "figures") {
   const patternFigure = (id) => {
     const p = patterns.find((x) => x.id === id);
     return p ? p.figure : null;
@@ -23,12 +23,11 @@ export async function figureFor(match, patterns) {
   // 1. bespoke figure for a known exercise (explicit field, else its id)
   if (match.entry) {
     const figId = match.entry.figure || match.entry.id;
-    const bespoke = await load(`figures/exercises/${figId}.svg`);
+    const bespoke = await load(`${base}/exercises/${figId}.svg`);
     if (bespoke) return bespoke;
-    // fall back to the entry's pattern archetype
     const pf = patternFigure(match.entry.pattern);
     if (pf) {
-      const svg = await load(`figures/patterns/${pf}.svg`);
+      const svg = await load(`${base}/patterns/${pf}.svg`);
       if (svg) return svg;
     }
   }
@@ -36,10 +35,10 @@ export async function figureFor(match, patterns) {
   // 2. pattern-only match (inferred from keywords)
   if (match.pattern) {
     const pf = patternFigure(match.pattern) || match.pattern;
-    const svg = await load(`figures/patterns/${pf}.svg`);
+    const svg = await load(`${base}/patterns/${pf}.svg`);
     if (svg) return svg;
   }
 
   // 3. placeholder
-  return (await load("figures/patterns/placeholder.svg")) || "";
+  return (await load(`${base}/patterns/placeholder.svg`)) || "";
 }

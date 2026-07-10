@@ -1,0 +1,20 @@
+{
+  "$schema": "../_schema/mode.schema.json",
+  "id": "stretching",
+  "label": "Stretching",
+  "tagline": "A printable stretch routine with holds and cues.",
+  "shape": "hold",
+  "dose": {
+    "primary":   { "key": "rounds", "label": "Rounds" },
+    "secondary": { "key": "hold",   "label": "Hold", "unit": "seconds" }
+  },
+  "fields": {
+    "primary":   { "key": "cue",     "label": "How to" },
+    "secondary": { "key": "easeoff", "label": "Ease off if" }
+  },
+  "taxonomy": "patterns.json",
+  "library":  "exercises.json",
+  "figures":  "figures",
+  "hero": "forward-fold",
+  "theme": { "accent": "#2bb8a3", "soft": "#2bb8a322" }
+}
