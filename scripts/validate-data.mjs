@@ -8,18 +8,23 @@ import { fileURLToPath } from "node:url";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const read = (p) => JSON.parse(readFileSync(resolve(root, p), "utf8"));
 
+// Strength's data now lives under its mode folder. When we add a multi-mode
+// validator, MODE_DIR becomes a loop over modes/index.json.
+const MODE_DIR = "modes/strength";
+const FIG = `${MODE_DIR}/figures`;
+
 const errors = [];
 const warnings = [];
 
-const patterns = read("data/patterns.json").patterns;
-const exercises = read("data/exercises.json").exercises;
+const patterns = read(`${MODE_DIR}/patterns.json`).patterns;
+const exercises = read(`${MODE_DIR}/exercises.json`).exercises;
 const patternIds = new Set(patterns.map((p) => p.id));
 
 // patterns must have a figure file
 for (const p of patterns) {
-  const fig = resolve(root, `figures/patterns/${p.figure}.svg`);
+  const fig = resolve(root, `${FIG}/patterns/${p.figure}.svg`);
   if (!existsSync(fig)) {
-    errors.push(`pattern "${p.id}": figure file missing — expected figures/patterns/${p.figure}.svg`);
+    errors.push(`pattern "${p.id}": figure file missing — expected ${FIG}/patterns/${p.figure}.svg`);
   }
 }
 
@@ -43,10 +48,10 @@ for (const ex of exercises) {
   }
   // a bespoke figure is optional, but if id-named one is absent the pattern figure is used
   const figId = ex.figure || ex.id;
-  if (ex.figure && !existsSync(resolve(root, `figures/exercises/${ex.figure}.svg`))) {
-    errors.push(`${where}: figure override "${ex.figure}" has no figures/exercises/${ex.figure}.svg`);
-  } else if (!ex.figure && !existsSync(resolve(root, `figures/exercises/${figId}.svg`))) {
-    warnings.push(`${where}: no bespoke figure (figures/exercises/${figId}.svg) — will use the "${ex.pattern}" archetype`);
+  if (ex.figure && !existsSync(resolve(root, `${FIG}/exercises/${ex.figure}.svg`))) {
+    errors.push(`${where}: figure override "${ex.figure}" has no ${FIG}/exercises/${ex.figure}.svg`);
+  } else if (!ex.figure && !existsSync(resolve(root, `${FIG}/exercises/${figId}.svg`))) {
+    warnings.push(`${where}: no bespoke figure (${FIG}/exercises/${figId}.svg) — will use the "${ex.pattern}" archetype`);
   }
   // alias collisions across entries
   for (const a of [ex.name, ...(ex.aliases || [])]) {
@@ -59,11 +64,11 @@ for (const ex of exercises) {
 }
 
 // orphan figure files (exist but nothing points at them) — informational
-const exFiles = existsSync(resolve(root, "figures/exercises"))
-  ? readdirSync(resolve(root, "figures/exercises")).filter((f) => f.endsWith(".svg"))
+const exFiles = existsSync(resolve(root, `${FIG}/exercises`))
+  ? readdirSync(resolve(root, `${FIG}/exercises`)).filter((f) => f.endsWith(".svg"))
   : [];
 const referenced = new Set(exercises.map((e) => `${e.figure || e.id}.svg`));
-for (const f of exFiles) if (!referenced.has(f)) warnings.push(`orphan figure figures/exercises/${f} (no entry uses it)`);
+for (const f of exFiles) if (!referenced.has(f)) warnings.push(`orphan figure ${FIG}/exercises/${f} (no entry uses it)`);
 
 for (const w of warnings) console.log(`  warn  ${w}`);
 for (const e of errors) console.error(`  ERR   ${e}`);
