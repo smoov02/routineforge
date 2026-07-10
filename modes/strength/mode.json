@@ -1,0 +1,21 @@
+{
+  "$schema": "../_schema/mode.schema.json",
+  "id": "strength",
+  "label": "Strength",
+  "tagline": "Bring your own program — get a clean, printable guide.",
+  "shape": "reps",
+  "og": true,
+  "dose": {
+    "primary":   { "key": "sets", "label": "Sets" },
+    "secondary": { "key": "reps", "label": "Reps" }
+  },
+  "fields": {
+    "primary":   { "key": "form",     "label": "Form" },
+    "secondary": { "key": "pitfalls", "label": "Avoid" }
+  },
+  "taxonomy": "patterns.json",
+  "library":  "exercises.json",
+  "figures":  "figures",
+  "hero": "goblet-squat",
+  "theme": { "accent": "#3fb950", "soft": "#3fb95022" }
+}

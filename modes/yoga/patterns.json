@@ -1,0 +1,14 @@
+{
+  "$comment": "Yoga pose families — same shape as strength patterns.json. The family figure is the fallback when a pose has no bespoke figure. CC0.",
+  "patterns": [
+    { "id": "standing",    "label": "Standing",    "figure": "standing" },
+    { "id": "seated",      "label": "Seated",      "figure": "seated" },
+    { "id": "supine",      "label": "Supine",      "figure": "supine" },
+    { "id": "prone",       "label": "Prone",       "figure": "prone" },
+    { "id": "balance",     "label": "Balance",     "figure": "balance" },
+    { "id": "backbend",    "label": "Backbend",    "figure": "backbend" },
+    { "id": "twist",       "label": "Twist",       "figure": "twist" },
+    { "id": "inversion",   "label": "Inversion",   "figure": "inversion" },
+    { "id": "restorative", "label": "Restorative", "figure": "restorative" }
+  ]
+}

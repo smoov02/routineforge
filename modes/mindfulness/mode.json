@@ -1,0 +1,19 @@
+{
+  "$schema": "../_schema/mode.schema.json",
+  "id": "mindfulness",
+  "label": "Mindfulness",
+  "tagline": "Meditation sessions as a calm, printable guide.",
+  "shape": "technique",
+  "dose": {
+    "primary": { "key": "duration", "label": "Length", "unit": "min" }
+  },
+  "fields": {
+    "primary":   { "key": "instruction", "label": "Instruction" },
+    "secondary": { "key": "notice",      "label": "What to notice" }
+  },
+  "taxonomy": "patterns.json",
+  "library":  "exercises.json",
+  "figures":  null,
+  "hero": null,
+  "theme": { "accent": "#7c74e0", "soft": "#7c74e022" }
+}

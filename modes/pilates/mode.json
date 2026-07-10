@@ -1,0 +1,38 @@
+{
+  "$schema": "../_schema/mode.schema.json",
+  "id": "pilates",
+  "label": "Pilates",
+  "tagline": "Mat Pilates sequences, printable and cue-first.",
+  "shape": "reps",
+  "dose": {
+    "primary": {
+      "key": "sets",
+      "label": "Sets"
+    },
+    "secondary": {
+      "key": "reps",
+      "label": "Reps"
+    }
+  },
+  "fields": {
+    "primary": {
+      "key": "cue",
+      "label": "Cue"
+    },
+    "secondary": {
+      "key": "watch",
+      "label": "Common mistake"
+    }
+  },
+  "labels": {
+    "equipment": "Props"
+  },
+  "taxonomy": "patterns.json",
+  "library": "exercises.json",
+  "figures": "figures",
+  "hero": "the-hundred",
+  "theme": {
+    "accent": "#f778ba",
+    "soft": "#f778ba22"
+  }
+}

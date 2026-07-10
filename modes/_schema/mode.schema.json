@@ -1,0 +1,158 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://routine-forge.com/schema/mode.json",
+  "title": "RoutineForge mode manifest",
+  "description": "Contract for modes/<id>/mode.json \u2014 one per mode. CC0.",
+  "type": "object",
+  "required": [
+    "id",
+    "label",
+    "shape",
+    "dose",
+    "fields",
+    "taxonomy",
+    "library",
+    "theme"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "label": {
+      "type": "string"
+    },
+    "tagline": {
+      "type": "string"
+    },
+    "og": {
+      "type": "boolean",
+      "description": "The original mode (strength)."
+    },
+    "shape": {
+      "type": "string",
+      "enum": [
+        "reps",
+        "hold",
+        "timed",
+        "technique"
+      ],
+      "description": "Dose-shape. reps/hold/timed have a figure + hero; technique has neither."
+    },
+    "dose": {
+      "type": "object",
+      "required": [
+        "primary"
+      ],
+      "properties": {
+        "primary": {
+          "$ref": "#/$defs/doseField"
+        },
+        "secondary": {
+          "$ref": "#/$defs/doseField"
+        }
+      }
+    },
+    "fields": {
+      "type": "object",
+      "required": [
+        "primary",
+        "secondary"
+      ],
+      "description": "Maps the two prose slots to keys in this mode's library items.",
+      "properties": {
+        "primary": {
+          "$ref": "#/$defs/labelledKey"
+        },
+        "secondary": {
+          "$ref": "#/$defs/labelledKey"
+        }
+      }
+    },
+    "labels": {
+      "type": "object",
+      "description": "Display-label overrides for fixed-key fields (e.g. equipment). Key = the item field key; value = the label to show, or null to hide it in this mode.",
+      "additionalProperties": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    },
+    "taxonomy": {
+      "type": "string"
+    },
+    "library": {
+      "type": "string"
+    },
+    "figures": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Figures dir, or null for technique modes."
+    },
+    "hero": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Library item id used as the mode emblem; null when shape = technique."
+    },
+    "theme": {
+      "type": "object",
+      "required": [
+        "accent"
+      ],
+      "properties": {
+        "accent": {
+          "type": "string",
+          "description": "Solid accent, sets --accent on the shell."
+        },
+        "soft": {
+          "type": "string",
+          "description": "Translucent accent for badges / fills."
+        }
+      }
+    }
+  },
+  "$defs": {
+    "labelledKey": {
+      "type": "object",
+      "required": [
+        "key",
+        "label"
+      ],
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    },
+    "doseField": {
+      "type": "object",
+      "required": [
+        "key",
+        "label"
+      ],
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

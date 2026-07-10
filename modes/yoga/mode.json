@@ -1,0 +1,39 @@
+{
+  "$schema": "../_schema/mode.schema.json",
+  "id": "yoga",
+  "label": "Yoga",
+  "tagline": "Turn a flow into a clean, printable sequence card.",
+  "shape": "hold",
+  "dose": {
+    "primary": {
+      "key": "rounds",
+      "label": "Rounds"
+    },
+    "secondary": {
+      "key": "hold",
+      "label": "Hold",
+      "unit": "breaths"
+    }
+  },
+  "fields": {
+    "primary": {
+      "key": "cue",
+      "label": "Alignment"
+    },
+    "secondary": {
+      "key": "easeoff",
+      "label": "Ease off if"
+    }
+  },
+  "labels": {
+    "equipment": "Props"
+  },
+  "taxonomy": "patterns.json",
+  "library": "exercises.json",
+  "figures": "figures",
+  "hero": "warrior-2",
+  "theme": {
+    "accent": "#a371f7",
+    "soft": "#a371f722"
+  }
+}
