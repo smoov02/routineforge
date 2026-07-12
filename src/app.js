@@ -5,33 +5,109 @@ import { buildIndex, matchRow } from "./match.js";
 import { buildRoutine } from "./builder.js";
 import { renderOverview, renderGuide } from "./render.js";
 
-// The active mode's data folder. Step 2 makes this dynamic (read from
-// modes/index.json); for now strength loads directly.
-const MODE_BASE = "modes/strength";
 // --- config you may want to edit ---------------------------------------------
 // Where your deployed Cloudflare Worker lives. Same-origin path if you route it
 // under your Pages domain, or a full https URL to the worker.
 const CREATOR_API = "https://routineforge-creator.markfmerchant.workers.dev";
 // Public Turnstile site key (safe to expose). Leave "" to skip the widget locally.
 const TURNSTILE_SITEKEY = "";
+// The mode registry. The active mode is chosen from here at startup.
+const MODES_INDEX = "modes/index.json";
 // -----------------------------------------------------------------------------
-const FIGURES_BASE = `${MODE_BASE}/figures`;
+
 const CREATOR_DISCLAIMER =
   "This is an original routine generated in a similar training style. It is independent and " +
   "not affiliated with, endorsed by, or created by any named person. Not medical advice — " +
   "clear new programs with a qualified professional.";
 
 const $ = (s) => document.querySelector(s);
+const prettyLabel = (id) => id.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+
 let INDEX = null, PATTERNS = [], EXERCISES = [];
+let REGISTRY = null, MODE = null, MODE_BASE = "", FIGURES_BASE = "";
+
+// Read the registry, build the pills, activate the first enabled mode.
+async function loadMode() {
+  REGISTRY = await fetch(MODES_INDEX).then((r) => r.json());
+  renderPills();
+  const first = REGISTRY.modes.find((m) => m.enabled);
+  if (!first) throw new Error("No enabled mode in modes/index.json");
+  await setMode(first.id);
+}
+
+// Switch to a mode: load its manifest, apply theme + hero, then its data.
+async function setMode(id) {
+  const entry = REGISTRY.modes.find((m) => m.id === id);
+  if (!entry || !entry.enabled) return;
+  MODE_BASE = `modes/${id}`;
+  MODE = await fetch(`${MODE_BASE}/mode.json`).then((r) => r.json());
+  FIGURES_BASE = `${MODE_BASE}/${MODE.figures || "figures"}`;
+  applyTheme(MODE.theme);
+  swapHero(MODE);
+  markActivePill(id);
+  $("#output").hidden = true;
+  $("#status").textContent = "";
+  await loadData();
+  setHeroName(MODE);
+}
 
 async function loadData() {
   const [ex, pat] = await Promise.all([
-    fetch(`${MODE_BASE}/exercises.json`).then((r) => r.json()),
-    fetch(`${MODE_BASE}/patterns.json`).then((r) => r.json()),
+    fetch(`${MODE_BASE}/${MODE.library}`).then((r) => r.json()),
+    fetch(`${MODE_BASE}/${MODE.taxonomy}`).then((r) => r.json()),
   ]);
   EXERCISES = ex.exercises;
   INDEX = buildIndex(EXERCISES);
   PATTERNS = pat.patterns;
+}
+
+function renderPills() {
+  const wrap = $("#mode-pills");
+  if (!wrap || !REGISTRY) return;
+  wrap.innerHTML = "";
+  for (const m of REGISTRY.modes) {
+    const pill = document.createElement("button");
+    pill.type = "button";
+    pill.className = "mode-pill" + (m.enabled ? "" : " soon");
+    pill.dataset.mode = m.id;
+    pill.textContent = prettyLabel(m.id);
+    if (m.enabled) pill.addEventListener("click", () => setMode(m.id));
+    else pill.disabled = true;
+    wrap.appendChild(pill);
+  }
+}
+
+function markActivePill(id) {
+  document.querySelectorAll("#mode-pills .mode-pill").forEach((p) => {
+    const on = p.dataset.mode === id;
+    p.classList.toggle("active", on);
+    p.setAttribute("aria-pressed", on ? "true" : "false");
+  });
+}
+
+function applyTheme(theme) {
+  if (!theme) return;
+  const root = document.documentElement.style;
+  if (theme.accent) root.setProperty("--accent", theme.accent);
+  if (theme.soft) root.setProperty("--accent-bg", theme.soft);
+}
+
+// Replace the hero's animated figure with the active mode's hero exercise.
+function swapHero(mode) {
+  const card = document.querySelector(".hero-art-card");
+  if (!card || !mode.hero) return;
+  const fig = document.createElement("stick-figure");
+  fig.setAttribute("ex", mode.hero);
+  const old = card.querySelector("stick-figure");
+  old ? card.replaceChild(fig, old) : card.appendChild(fig);
+}
+
+// Set the hero label from the loaded library (falls back to a prettified id).
+function setHeroName(mode) {
+  const tag = document.querySelector(".hero-art-tag");
+  if (!tag || !mode.hero) return;
+  const entry = EXERCISES.find((e) => e.id === mode.hero);
+  tag.textContent = entry ? entry.name : prettyLabel(mode.hero);
 }
 
 async function showRoutine(routine) {
@@ -110,7 +186,7 @@ async function handleCreator() {
 }
 
 function init() {
-  loadData().catch((e) => {
+  loadMode().catch((e) => {
     $("#status").textContent =
       "Couldn't load the exercise data. Run this through a local server (see README).";
     console.error(e);
