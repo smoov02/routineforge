@@ -17,5 +17,5 @@
   "library":  "exercises.json",
   "figures":  "figures",
   "hero": "goblet-squat",
-  "theme": { "accent": "#3fb950", "soft": "#3fb95022" }
+  "theme": { "accent": "#6fbf8e", "soft": "rgba(111, 191, 142, 0.16)" }
 }

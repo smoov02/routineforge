@@ -227,3 +227,16 @@ main { max-width: 860px; margin: 0 auto; padding: 0 20px 40px; }
 .guide-h { font-family: var(--display); font-weight: 400; text-transform: uppercase; letter-spacing: .01em; font-size: 24px; margin: 30px 0 2px; }
 .guide-sub { color: var(--muted); font-size: 13.5px; margin: 0 0 8px; }
 .guide-sec { font-size: 13px; font-weight: 700; color: var(--accent); border-bottom: 1px solid var(--line-strong); padding-bottom: 4px; margin: 16px 0 4px; text-transform: uppercase; letter-spacing: .06em; }
+
+.mode-pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 1.25rem 0 0.25rem; }
+.mode-pill {
+  font-family: var(--sans); font-size: 0.82rem; font-weight: 600; letter-spacing: 0.01em;
+  color: var(--muted); background: transparent;
+  border: 1px solid var(--line-strong); border-radius: 999px;
+  padding: 6px 14px; cursor: pointer;
+  transition: color .15s, border-color .15s, background .15s;
+}
+.mode-pill:hover:not(:disabled) { color: var(--ink); border-color: var(--accent); }
+.mode-pill.active { color: var(--ink); background: var(--accent-bg); border-color: var(--accent); }
+.mode-pill.soon { opacity: .45; cursor: not-allowed; }
+.mode-pill.soon::after { content: " · soon"; font-weight: 400; color: var(--faint); }
