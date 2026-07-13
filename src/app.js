@@ -111,7 +111,7 @@ function setHeroName(mode) {
 }
 
 async function showRoutine(routine) {
-  renderOverview($("#overview"), routine);
+renderOverview($("#overview"), routine, MODE ? MODE.dose : null);
   await renderGuide($("#guide"), routine, INDEX, PATTERNS, FIGURES_BASE, MODE);
   $("#output").hidden = false;
   $("#status").textContent = "";

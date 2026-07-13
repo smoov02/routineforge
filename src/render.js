@@ -16,11 +16,12 @@ function el(tag, cls, html) {
   return n;
 }
 
-function repsLabel(ex) {
-  const sets = ex.sets ? ex.sets.replace(/\s*sets?\s*/i, "").trim() : "";
-  const reps = ex.reps ? ex.reps.replace(/\s*reps?\s*/i, "").trim() : "";
-  if (sets && reps) return `${sets} \u00d7 ${reps}`;
-  return sets || reps || "";
+function doseLabel(ex, dose) {
+  const D = dose || { primary: { key: "sets" }, secondary: { key: "reps" } };
+  const a = ex[D.primary.key] ? String(ex[D.primary.key]).trim() : "";
+  const b = D.secondary && ex[D.secondary.key] ? String(ex[D.secondary.key]).trim() : "";
+  if (a && b) return `${a} \u00d7 ${b}`;
+  return a || b || "";
 }
 
 // Exercise id that has a rig, or a rig sharing the movement pattern, else null.
@@ -34,8 +35,8 @@ function rigExFor(match) {
   return null;
 }
 
-// ---- overview (mirrors the one-page routine layout) -------------------------
-export function renderOverview(container, routine) {
+// ---- overview (mirrors the one-page routine layout) RENDER OVERVIEW -------------------------
+export function renderOverview(container, routine, dose = null) {
   container.innerHTML = "";
 
   const head = el("div", "ov-head");
@@ -63,7 +64,7 @@ export function renderOverview(container, routine) {
     card.appendChild(el("div", "ov-card-title", w.label + (w.focus ? ` <span>${w.focus}</span>` : "")));
     const list = el("div", "ov-ex-list");
     for (const ex of w.exercises) {
-      const reps = repsLabel(ex);
+      const reps = doseLabel(ex, dose);
       list.appendChild(el("div", "ov-ex",
         `<span>${ex.name}</span><span class="ov-reps">${reps}</span>`));
     }
@@ -95,6 +96,7 @@ export async function renderGuide(container, routine, index, patterns, figuresBa
   container.innerHTML = "";
   // Field labels + keys come from the active mode's manifest (fields.primary / .secondary).
   // Falls back to strength's form/pitfalls when no mode is passed.
+  const D = (mode && mode.dose) || null;
   const F = (mode && mode.fields) || { primary: { key: "form", label: "Form" }, secondary: { key: "pitfalls", label: "Avoid" } };
   container.appendChild(el("h2", "guide-h", "Exercise guide"));
   container.appendChild(el("p", "guide-sub",
@@ -126,7 +128,7 @@ export async function renderGuide(container, routine, index, patterns, figuresBa
 
       const body = el("div", "ex-body");
       const displayName = match.entry ? match.entry.name : ex.name;
-      const reps = repsLabel(ex);
+      const reps = doseLabel(ex, D);
       body.appendChild(el("div", "ex-head",
         `<span class="ex-name">${displayName}</span>` +
         (reps ? `<span class="ex-reps">${reps}</span>` : "") + badge(match)));
