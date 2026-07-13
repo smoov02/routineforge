@@ -130,8 +130,8 @@ async function handleFile(file) {
 
 async function loadSample() {
   $("#status").textContent = "Loading sample\u2026";
-  const text = await fetch("samples/full-body-ab.csv").then((r) => r.text());
-  await showRoutine(parseCsvText(text, "Full-body A/B \u2014 sample"));
+  const text = await fetch(`samples/${MODE_BASE.split("/").pop()}.csv`).then((r) => r.text());
+  await showRoutine(parseCsvText(text, `${MODE.label} \u2014 sample`));
 }
 
 // pull a plausible creator string out of a raw input or channel URL

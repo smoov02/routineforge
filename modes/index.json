@@ -2,7 +2,7 @@
   "$comment": "Mode registry. The app loads this first to build the landing / mode switcher. 'order' = display order; 'enabled' hides modes whose library isn't filled yet, so you can ship strength alone and light up the rest as data lands. CC0.",
   "modes": [
     { "id": "strength",     "enabled": true,  "og": true },
-    { "id": "yoga",         "enabled": false },
+    { "id": "yoga",         "enabled": true },
     { "id": "stretching",   "enabled": false },
     { "id": "mobility",     "enabled": false },
     { "id": "pilates",      "enabled": false },
