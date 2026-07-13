@@ -112,7 +112,7 @@ function setHeroName(mode) {
 
 async function showRoutine(routine) {
   renderOverview($("#overview"), routine);
-  await renderGuide($("#guide"), routine, INDEX, PATTERNS, FIGURES_BASE);
+  await renderGuide($("#guide"), routine, INDEX, PATTERNS, FIGURES_BASE, MODE);
   $("#output").hidden = false;
   $("#status").textContent = "";
   $("#overview").scrollIntoView({ behavior: "smooth", block: "start" });

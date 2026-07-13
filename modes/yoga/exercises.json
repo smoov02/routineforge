@@ -1,31 +1,113 @@
 {
-  "$comment": "Yoga library STUB \u2014 shows the reshaped item schema for a 'hold' mode: cue/easeoff prose keys (mapped in mode.json fields), pattern = pose family. The 'equipment' key stays fixed across modes; yoga's mode.json relabels it 'Props' via labels. Two entries as a template; fill the rest. CC0.",
+  "$comment": "Yoga starter library (12 poses). Hold-shape mode: prose keys are cue/easeoff (mapped in mode.json fields); pattern = pose family; equipment stays the fixed key, shown as 'Props' via mode.json labels. Dose (rounds x hold-in-breaths) comes from the routine, not stored here. Pose names are traditional/public-domain; all cue/easeoff copy is original CC0.",
   "exercises": [
+    {
+      "id": "mountain-pose",
+      "name": "Mountain Pose",
+      "aliases": ["tadasana", "mountain"],
+      "pattern": "standing",
+      "equipment": "none",
+      "cue": "Stand tall with feet hip-width, weight even across both feet. Lengthen up through the crown, roll the shoulders back and down, arms relaxed with palms forward. Draw the low ribs down and breathe steadily.",
+      "easeoff": "Widen the stance slightly if balance feels shaky. Keep a micro-bend in the knees rather than locking them."
+    },
+    {
+      "id": "downward-dog",
+      "name": "Downward-Facing Dog",
+      "aliases": ["adho mukha svanasana", "down dog", "downward facing dog"],
+      "pattern": "standing",
+      "equipment": "none",
+      "cue": "From hands and knees, tuck the toes and lift the hips high into an inverted V. Press the floor away through the hands, lengthen the spine, and reach the heels toward the floor without forcing. Bend the knees generously to keep the back long.",
+      "easeoff": "Bend the knees and lift the heels if tight hamstrings round your back. Drop to the knees to rest when the shoulders fatigue."
+    },
+    {
+      "id": "warrior-1",
+      "name": "Warrior I",
+      "aliases": ["virabhadrasana i", "warrior 1", "warrior one"],
+      "pattern": "standing",
+      "equipment": "none",
+      "cue": "Front knee bent over the ankle, back foot planted at a slight angle, hips squaring toward the front. Reach both arms overhead, lengthen the spine, and sink the hips while keeping the back leg strong.",
+      "easeoff": "Shorten the stance if the back heel lifts or the hips can't square. Lower the arms to shoulder height if the shoulders strain."
+    },
     {
       "id": "warrior-2",
       "name": "Warrior II",
-      "aliases": [
-        "virabhadrasana ii",
-        "warrior 2",
-        "warrior two"
-      ],
+      "aliases": ["virabhadrasana ii", "warrior 2", "warrior two"],
       "pattern": "standing",
       "equipment": "none",
       "cue": "Front knee stacked over the ankle and tracking toward the second toe; back foot parallel to the mat's back edge. Sink the hips, reach through both arms, soft shoulders, gaze over the front hand.",
       "easeoff": "Shorten the stance if the front knee drifts past the ankle or the hips can't stay open. Come up higher rather than collapsing the chest forward."
     },
     {
-      "id": "downward-dog",
-      "name": "Downward-Facing Dog",
-      "aliases": [
-        "adho mukha svanasana",
-        "down dog",
-        "downward facing dog"
-      ],
+      "id": "triangle-pose",
+      "name": "Triangle Pose",
+      "aliases": ["trikonasana", "triangle", "extended triangle"],
       "pattern": "standing",
+      "equipment": "block (optional)",
+      "cue": "From a wide stance with the front foot forward, hinge from the hip to reach the front hand toward the shin or a block, top arm stacking overhead. Keep both legs straight but not locked, and open the chest toward the ceiling.",
+      "easeoff": "Rest the bottom hand higher — on the shin or a block — rather than forcing it down. Soften the front knee if the hamstring complains."
+    },
+    {
+      "id": "tree-pose",
+      "name": "Tree Pose",
+      "aliases": ["vrksasana", "tree"],
+      "pattern": "balance",
       "equipment": "none",
-      "cue": "Hands shoulder-width, feet hip-width, hips high into an inverted V. Press the floor away and let the spine lengthen; bend the knees generously to keep the back long.",
-      "easeoff": "Bend the knees and lift the heels if tight hamstrings round your back. Shorten the stance if the shoulders shrug toward the ears."
+      "cue": "Root down through one foot and place the other sole on the inner calf or inner thigh — never the knee. Find a steady gaze, press foot and leg together, and lift the arms overhead or hold them at the heart.",
+      "easeoff": "Keep the toes on the floor as a kickstand if balance wavers. Place the foot on the calf rather than the thigh, and stand near a wall."
+    },
+    {
+      "id": "seated-forward-fold",
+      "name": "Seated Forward Fold",
+      "aliases": ["paschimottanasana", "seated forward bend"],
+      "pattern": "seated",
+      "equipment": "strap (optional)",
+      "cue": "Sit with legs extended and feet flexed, lengthen the spine tall, then hinge from the hips to fold forward, reaching for the shins, ankles, or feet. Lead with the chest, not the chin, and keep the back long.",
+      "easeoff": "Bend the knees and loop a strap around the feet if the low back rounds. Sit on a folded blanket to tilt the pelvis forward."
+    },
+    {
+      "id": "easy-pose",
+      "name": "Easy Pose",
+      "aliases": ["sukhasana", "easy seat", "cross-legged"],
+      "pattern": "seated",
+      "equipment": "none",
+      "cue": "Sit cross-legged with the shins loosely crossed, sit bones grounded, spine tall and stacked over the hips. Rest the hands on the knees, soften the shoulders, and breathe evenly.",
+      "easeoff": "Sit on a cushion to lift the hips if the low back rounds or the knees ride high. Switch the leg cross halfway through."
+    },
+    {
+      "id": "childs-pose",
+      "name": "Child's Pose",
+      "aliases": ["balasana", "child pose", "childs pose"],
+      "pattern": "kneeling",
+      "equipment": "none",
+      "cue": "From kneeling, bring the big toes together and knees wide, sink the hips back toward the heels, and walk the hands forward to lower the forehead to the mat. Let the belly rest between the thighs and breathe into the back.",
+      "easeoff": "Place a cushion under the hips or forehead if the pose feels tight. Bring the knees closer together if the hips or knees complain."
+    },
+    {
+      "id": "cat-cow",
+      "name": "Cat-Cow",
+      "aliases": ["marjaryasana", "bitilasana", "cat cow"],
+      "pattern": "kneeling",
+      "equipment": "none",
+      "cue": "On hands and knees, wrists under shoulders and knees under hips. Inhale to drop the belly and lift the gaze; exhale to round the spine and tuck the chin. Move slowly, following the breath.",
+      "easeoff": "Pad the knees with a folded blanket. Keep the range small if the wrists or low back are sensitive."
+    },
+    {
+      "id": "bridge-pose",
+      "name": "Bridge Pose",
+      "aliases": ["setu bandha sarvangasana", "setu bandhasana", "bridge"],
+      "pattern": "supine",
+      "equipment": "block (optional)",
+      "cue": "Lie on your back, knees bent, feet hip-width and close to the hips. Press through the feet to lift the hips, roll the shoulders under, and keep the knees tracking straight ahead. Lengthen the tailbone toward the knees.",
+      "easeoff": "Lower the hips slightly or slide a block under the sacrum for support. Keep the lift small if the low back pinches."
+    },
+    {
+      "id": "corpse-pose",
+      "name": "Corpse Pose",
+      "aliases": ["savasana", "shavasana", "corpse"],
+      "pattern": "supine",
+      "equipment": "bolster (optional)",
+      "cue": "Lie flat on your back, legs long and slightly apart, arms resting away from the body with palms up. Let the whole body soften into the floor, release the jaw and shoulders, and breathe naturally.",
+      "easeoff": "Place a bolster under the knees to ease the low back. Bend the knees with the feet flat if lying flat is uncomfortable."
     }
   ]
 }

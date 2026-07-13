@@ -90,9 +90,12 @@ function badge(match) {
     default: return `<span class="tag tag-warn">unknown \u2014 add it to the library</span>`;
   }
 }
-
-export async function renderGuide(container, routine, index, patterns, figuresBase = "figures") {
+//----------------RENDER GUIDE----------------
+export async function renderGuide(container, routine, index, patterns, figuresBase = "figures", mode = null) {
   container.innerHTML = "";
+  // Field labels + keys come from the active mode's manifest (fields.primary / .secondary).
+  // Falls back to strength's form/pitfalls when no mode is passed.
+  const F = (mode && mode.fields) || { primary: { key: "form", label: "Form" }, secondary: { key: "pitfalls", label: "Avoid" } };
   container.appendChild(el("h2", "guide-h", "Exercise guide"));
   container.appendChild(el("p", "guide-sub",
     "Thumbnail, key form cues, and the main thing to avoid for each movement."));
@@ -128,12 +131,12 @@ export async function renderGuide(container, routine, index, patterns, figuresBa
         `<span class="ex-name">${displayName}</span>` +
         (reps ? `<span class="ex-reps">${reps}</span>` : "") + badge(match)));
 
-      const form = match.entry ? match.entry.form
-        : "Add this exercise to data/exercises.json to show its form cues here.";
-      const pit = match.entry ? match.entry.pitfalls
-        : "Once it's in the library, its pitfalls will appear here.";
-      body.appendChild(el("div", "ex-line", `<span class="lab">Form</span>${form}`));
-      body.appendChild(el("div", "ex-line", `<span class="lab lab-warn">Avoid</span>${pit}`));
+const primary = match.entry ? match.entry[F.primary.key]
+        : `Add this exercise to the library to show its ${F.primary.label.toLowerCase()} here.`;
+      const secondary = match.entry ? match.entry[F.secondary.key]
+        : `Once it's in the library, its ${F.secondary.label.toLowerCase()} will appear here.`;
+      body.appendChild(el("div", "ex-line", `<span class="lab">${F.primary.label}</span>${primary}`));
+      body.appendChild(el("div", "ex-line", `<span class="lab lab-warn">${F.secondary.label}</span>${secondary}`));
       if (ex.notes) body.appendChild(el("div", "ex-line ex-note", `<span class="lab lab-you">Your note</span>${ex.notes}`));
 
       card.appendChild(body);
