@@ -1,0 +1,113 @@
+{
+  "$comment": "Stretching starter library (12 stretches). Hold-shape mode: prose keys are cue/easeoff (mapped in mode.json fields); pattern = target region; dose (rounds x hold-in-seconds) comes from the routine, not stored here. All cue/easeoff copy is original CC0.",
+  "exercises": [
+    {
+      "id": "forward-fold",
+      "name": "Standing Forward Fold",
+      "aliases": ["standing forward fold", "forward bend", "toe touch", "uttanasana"],
+      "pattern": "hamstrings",
+      "equipment": "none",
+      "cue": "From standing, soften the knees and hinge from the hips to fold forward, letting the head and arms hang heavy toward the floor. Keep weight in the balls of the feet and let gravity lengthen the back of the legs. Let the fold deepen a little on each exhale.",
+      "easeoff": "Bend the knees generously if the low back rounds or the hamstrings pull sharply. Rest the hands on the shins or a chair rather than reaching for the floor."
+    },
+    {
+      "id": "seated-hamstring-stretch",
+      "name": "Seated Hamstring Stretch",
+      "aliases": ["seated hamstring", "seated forward reach", "single leg hamstring stretch"],
+      "pattern": "hamstrings",
+      "equipment": "strap or towel (optional)",
+      "cue": "Sit with one leg extended and the other foot tucked toward the inner thigh. Lengthen the spine, then hinge from the hips over the straight leg, reaching for the shin, ankle, or foot. Keep the extended leg's toes pointing up.",
+      "easeoff": "Loop a towel or strap around the foot and hold that if reaching is a strain. Keep a small bend in the extended knee to protect the hamstring."
+    },
+    {
+      "id": "kneeling-hip-flexor",
+      "name": "Kneeling Hip-Flexor Stretch",
+      "aliases": ["hip flexor stretch", "half kneeling hip flexor", "low lunge stretch"],
+      "pattern": "hips",
+      "equipment": "none",
+      "cue": "From half-kneeling, one foot forward and the other knee down, tuck the pelvis under and shift gently forward until you feel a stretch across the front of the back hip. Keep the torso tall and the front knee over the ankle.",
+      "easeoff": "Pad the down knee with a folded mat or towel. Shift only to a mild stretch — the front of the hip is sensitive, so don't chase depth."
+    },
+    {
+      "id": "figure-four-stretch",
+      "name": "Figure-Four Glute Stretch",
+      "aliases": ["figure 4 stretch", "supine figure four", "glute stretch", "piriformis stretch"],
+      "pattern": "hips",
+      "equipment": "none",
+      "cue": "Lie on your back, cross one ankle over the opposite thigh to make a figure four, then reach through and draw the bottom thigh toward your chest. Keep the head and shoulders relaxed on the floor and let the crossed hip open.",
+      "easeoff": "Keep the bottom foot on the floor and press the crossed knee away instead if drawing the leg in is too much. Rest your head on a cushion."
+    },
+    {
+      "id": "butterfly-stretch",
+      "name": "Butterfly Stretch",
+      "aliases": ["butterfly", "seated butterfly", "groin stretch", "bound angle"],
+      "pattern": "hips",
+      "equipment": "none",
+      "cue": "Sit tall with the soles of the feet together and knees falling out to the sides. Hold the feet or ankles, lengthen the spine, and hinge gently forward from the hips to deepen the groin stretch. Let the knees relax down rather than forcing them.",
+      "easeoff": "Sit on a cushion and move the feet further from the body to ease the intensity. Skip the forward hinge and just sit tall if the inner thighs are tight."
+    },
+    {
+      "id": "standing-quad-stretch",
+      "name": "Standing Quad Stretch",
+      "aliases": ["quad stretch", "standing quadriceps stretch", "thigh stretch"],
+      "pattern": "quads",
+      "equipment": "wall or chair (for balance)",
+      "cue": "Standing tall, bend one knee and catch that foot behind you, drawing the heel toward the glute. Keep the knees close together and the pelvis tucked so you feel the stretch along the front of the thigh, not the low back.",
+      "easeoff": "Hold a wall or chair for balance and use a strap around the ankle if you can't reach the foot. Don't crank the heel — a mild stretch is enough."
+    },
+    {
+      "id": "supine-spinal-twist",
+      "name": "Supine Spinal Twist",
+      "aliases": ["lying spinal twist", "supine twist", "reclined twist"],
+      "pattern": "back",
+      "equipment": "none",
+      "cue": "Lie on your back, draw one knee toward the chest, then guide it across the body toward the floor while extending the opposite arm out to the side. Turn the gaze away from the knee and keep both shoulders heavy on the floor.",
+      "easeoff": "Place a cushion under the crossing knee so it doesn't have to reach the floor. Keep the twist gentle and stop where both shoulders can stay grounded."
+    },
+    {
+      "id": "seated-spinal-twist",
+      "name": "Seated Spinal Twist",
+      "aliases": ["seated twist", "seated spinal rotation"],
+      "pattern": "back",
+      "equipment": "none",
+      "cue": "Sit with legs extended, bend one knee and place that foot outside the opposite thigh. Lengthen the spine tall, then rotate the torso toward the bent knee, using the opposite arm as a gentle lever. Twist from the mid-back, not the neck.",
+      "easeoff": "Keep the bottom leg straight and the twist shallow if the back feels strained. Sit on a cushion to help the spine stay tall."
+    },
+    {
+      "id": "chest-doorway-stretch",
+      "name": "Chest Doorway Stretch",
+      "aliases": ["doorway stretch", "doorway chest stretch", "pec stretch"],
+      "pattern": "upper",
+      "equipment": "doorway",
+      "cue": "Stand in a doorway with forearms on the frame, elbows at shoulder height. Step one foot through and lean gently forward until you feel a stretch across the chest and front of the shoulders. Keep the ribs down and the neck long.",
+      "easeoff": "Lower the arms slightly and lean less if the front of the shoulder pinches. A mild opening across the chest is the goal, not a deep stretch."
+    },
+    {
+      "id": "cross-body-shoulder-stretch",
+      "name": "Cross-Body Shoulder Stretch",
+      "aliases": ["cross body shoulder", "posterior shoulder stretch", "shoulder stretch"],
+      "pattern": "upper",
+      "equipment": "none",
+      "cue": "Bring one arm straight across the chest, then use the opposite hand to draw it closer, holding above or below the elbow. Keep the shoulder down away from the ear and breathe into the back of the shoulder.",
+      "easeoff": "Draw the arm across only to a gentle stretch — don't pull hard on the elbow joint. Keep the working shoulder relaxed rather than hunched."
+    },
+    {
+      "id": "triceps-overhead-stretch",
+      "name": "Overhead Triceps Stretch",
+      "aliases": ["triceps stretch", "overhead tricep stretch", "tricep stretch"],
+      "pattern": "upper",
+      "equipment": "none",
+      "cue": "Reach one arm overhead and bend the elbow so the hand drops behind the neck. Use the other hand to gently guide the elbow back and down, feeling the stretch along the back of the upper arm. Keep the ribs down and the neck tall.",
+      "easeoff": "Guide the elbow only to a comfortable stretch. If the shoulder is tight, reach less far down the back and keep the movement small."
+    },
+    {
+      "id": "neck-side-stretch",
+      "name": "Neck Side Stretch",
+      "aliases": ["neck stretch", "lateral neck stretch", "neck side bend"],
+      "pattern": "upper",
+      "equipment": "none",
+      "cue": "Sitting or standing tall, let one ear drift toward that shoulder, keeping both shoulders relaxed and down. Rest the same-side hand lightly on the head for a touch of weight if you like, and breathe into the side of the neck.",
+      "easeoff": "Let the weight of the head do the work — never pull on the neck. Ease off at the first sign of pinching and keep the stretch light."
+    }
+  ]
+}

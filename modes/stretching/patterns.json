@@ -1,0 +1,10 @@
+{
+  "$comment": "Stretching families by target region (starter set, 5). Same shape as strength patterns.json; the family figure is the fallback when a stretch has no bespoke figure. Add families (calves, neck, forearms) as the library grows. CC0.",
+  "patterns": [
+    { "id": "hamstrings", "label": "Hamstrings",     "figure": "hamstrings" },
+    { "id": "hips",       "label": "Hips & glutes",  "figure": "hips" },
+    { "id": "quads",      "label": "Quads",          "figure": "quads" },
+    { "id": "back",       "label": "Back & spine",   "figure": "back" },
+    { "id": "upper",      "label": "Upper body",     "figure": "upper" }
+  ]
+}

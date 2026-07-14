@@ -3,7 +3,7 @@
   "modes": [
     { "id": "strength",     "enabled": true,  "og": true },
     { "id": "yoga",         "enabled": true },
-    { "id": "stretching",   "enabled": false },
+    { "id": "stretching",   "enabled": true },
     { "id": "mobility",     "enabled": false },
     { "id": "pilates",      "enabled": false },
     { "id": "calisthenics", "enabled": false },
