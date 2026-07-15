@@ -1,0 +1,104 @@
+{
+  "$comment": "Mobility starter library (12 drills). Hold-shape mode: prose keys cue/easeoff (mapped in mode.json fields); pattern = joint/region; dose (reps x hold-seconds) comes from the routine. All copy original CC0.",
+  "exercises": [
+    {
+      "id": "worlds-greatest-stretch",
+      "name": "World's Greatest Stretch",
+      "aliases": ["worlds greatest stretch", "wgs", "lunge with rotation"],
+      "pattern": "full-body",
+      "equipment": "none",
+      "cue": "From a lunge, drop the back knee lightly, plant both hands inside the front foot, then rotate the front-side arm up toward the ceiling and open the chest. Return the hand down and gently press the hips back to lengthen the front leg.",
+      "easeoff": "Keep the back knee down for support and shrink the reach or rotation as needed. Move through it slowly rather than forcing any single position."
+    },
+    {
+      "id": "inchworm",
+      "name": "Inchworm",
+      "aliases": ["inch worm", "walkout"],
+      "pattern": "full-body",
+      "equipment": "none",
+      "cue": "From standing, hinge and walk the hands out to a plank, hold a beat with a strong midline, then walk the feet toward the hands and roll up to stand. Keep the hips level as the hands travel.",
+      "easeoff": "Bend the knees generously walking out and in. Shorten how far you walk out if the midline sags."
+    },
+    {
+      "id": "hip-cars",
+      "name": "Hip CARs",
+      "aliases": ["hip circles", "hip controlled rotations", "hip car"],
+      "pattern": "hips",
+      "equipment": "none",
+      "cue": "Standing tall or on all fours, lift one knee and trace the widest slow circle you can with the hip — out, up, around, and back — keeping the rest of the body still. Own every point in the range.",
+      "easeoff": "Shrink the circle to the range you can control without the pelvis shifting. Hold a wall for balance if standing."
+    },
+    {
+      "id": "90-90-hip-switch",
+      "name": "90/90 Hip Switch",
+      "aliases": ["90 90 hip switch", "ninety ninety", "90-90"],
+      "pattern": "hips",
+      "equipment": "none",
+      "cue": "Sit with both knees bent at 90 degrees, one shin in front and one out to the side. Chest tall, rotate both knees across to switch sides, lowering with control rather than flopping. Move slowly from the hips.",
+      "easeoff": "Use your hands on the floor for support and reduce the range if the hips are tight. Sit up on a cushion to make it easier."
+    },
+    {
+      "id": "deep-squat-hold",
+      "name": "Deep Squat Hold",
+      "aliases": ["deep squat", "squat hold", "malasana hold"],
+      "pattern": "hips",
+      "equipment": "none",
+      "cue": "Lower into the deepest squat you can with heels down, then gently press the elbows against the inner knees to open the hips. Keep the chest lifted and rock slightly side to side to explore the range.",
+      "easeoff": "Hold something in front of you and let it take some weight. Raise the heels on a rolled towel if they lift off the floor."
+    },
+    {
+      "id": "shoulder-cars",
+      "name": "Shoulder CARs",
+      "aliases": ["shoulder circles", "shoulder controlled rotations", "shoulder car"],
+      "pattern": "shoulders",
+      "equipment": "none",
+      "cue": "Standing tall, reach one arm forward and trace the largest slow circle you can — up past the ear, back, down, and around — keeping the ribs down and the rest of the body quiet. Own the end ranges rather than rushing.",
+      "easeoff": "Reduce the circle where the shoulder starts to shrug or the ribs flare. Keep it pain-free and controlled over large."
+    },
+    {
+      "id": "wall-slides",
+      "name": "Wall Slides",
+      "aliases": ["wall slide", "wall angels"],
+      "pattern": "shoulders",
+      "equipment": "wall",
+      "cue": "Back to a wall, arms bent in a goalpost, backs of the hands and forearms on the wall. Slide the arms up overhead and back down while keeping contact, moving slowly and keeping the ribs down.",
+      "easeoff": "Step the feet further from the wall and don't force the hands to stay flat — move only through the range where contact is easy."
+    },
+    {
+      "id": "thoracic-rotation",
+      "name": "Thoracic Rotation",
+      "aliases": ["t-spine rotation", "quadruped rotation", "thread the needle"],
+      "pattern": "spine",
+      "equipment": "none",
+      "cue": "On all fours, place one hand behind the head, then rotate that elbow down toward the opposite arm and back up toward the ceiling, following the elbow with your gaze. Rotate from the upper back, hips still.",
+      "easeoff": "Reduce the range and keep the hips square rather than letting them twist. Move slowly and breathe with the rotation."
+    },
+    {
+      "id": "open-book",
+      "name": "Open-Book",
+      "aliases": ["open book", "side lying rotation"],
+      "pattern": "spine",
+      "equipment": "none",
+      "cue": "Lie on your side, knees bent, arms stacked in front. Keeping the knees down, sweep the top arm up and over to open the chest toward the other side, following the hand with your eyes, then return.",
+      "easeoff": "Let the top arm float rather than forcing it to the floor. Place a cushion under the knees for comfort."
+    },
+    {
+      "id": "ankle-rocks",
+      "name": "Ankle Rocks",
+      "aliases": ["knee to wall", "ankle mobilization", "ankle rock"],
+      "pattern": "ankles",
+      "equipment": "wall (optional)",
+      "cue": "In a lunge or half-kneel, drive the front knee forward over the toes toward a wall while keeping the heel planted, then return. Feel the mobilization through the front of the ankle.",
+      "easeoff": "Move the foot closer to the wall to reduce the demand. Keep the heel down — that's the whole point — and don't force past a gentle stretch."
+    },
+    {
+      "id": "ankle-circles",
+      "name": "Ankle Circles",
+      "aliases": ["ankle circle", "ankle rotations"],
+      "pattern": "ankles",
+      "equipment": "none",
+      "cue": "Seated or balanced on one leg, lift a foot and draw slow full circles with the ankle in both directions, moving through the largest pain-free range. Keep the movement in the ankle, not the whole leg.",
+      "easeoff": "Support the leg with your hands if seated. Keep the circles small and smooth if the ankle is stiff."
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "$comment": "Mobility families by joint/region (starter, 5). Family figure is the fallback when a drill has no bespoke figure. CC0.",
+  "patterns": [
+    { "id": "hips",      "label": "Hips",      "figure": "hips" },
+    { "id": "shoulders", "label": "Shoulders", "figure": "shoulders" },
+    { "id": "spine",     "label": "Spine",     "figure": "spine" },
+    { "id": "ankles",    "label": "Ankles",    "figure": "ankles" },
+    { "id": "full-body", "label": "Full body", "figure": "full-body" }
+  ]
+}

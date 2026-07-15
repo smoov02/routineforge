@@ -4,7 +4,7 @@
     { "id": "strength",     "enabled": true,  "og": true },
     { "id": "yoga",         "enabled": true },
     { "id": "stretching",   "enabled": true },
-    { "id": "mobility",     "enabled": false },
+    { "id": "mobility",     "enabled": true },
     { "id": "pilates",      "enabled": false },
     { "id": "calisthenics", "enabled": false },
     { "id": "running",      "enabled": false },
