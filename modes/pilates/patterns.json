@@ -1,0 +1,10 @@
+{
+  "$comment": "Pilates families by position (starter, 5). Family figure is the fallback when a move has no bespoke figure. CC0.",
+  "patterns": [
+    { "id": "supine",     "label": "Supine",      "figure": "supine" },
+    { "id": "prone",      "label": "Prone",       "figure": "prone" },
+    { "id": "seated",     "label": "Seated",      "figure": "seated" },
+    { "id": "side-lying", "label": "Side-lying",  "figure": "side-lying" },
+    { "id": "rolling",    "label": "Rolling",     "figure": "rolling" }
+  ]
+}

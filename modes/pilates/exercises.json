@@ -1,0 +1,104 @@
+{
+  "$comment": "Pilates starter library (12 mat moves). Reps-shape mode: prose keys cue/watch (mapped in mode.json fields); pattern = position; dose (sets x reps) comes from the routine. equipment stays the fixed key, shown as 'Props'. All copy original CC0.",
+  "exercises": [
+    {
+      "id": "the-hundred",
+      "name": "The Hundred",
+      "aliases": ["hundred", "the 100"],
+      "pattern": "supine",
+      "equipment": "none",
+      "cue": "Lie on your back, curl the head and shoulders up, extend the legs to a challenging but stable height, and reach the arms long by your sides. Pump the arms in small controlled beats — inhale for five, exhale for five — belly drawn in.",
+      "watch": "Letting the low back arch off the mat — raise the leg angle if it does. Tension creeping into the neck instead of the abdominals."
+    },
+    {
+      "id": "roll-up",
+      "name": "Roll-Up",
+      "aliases": ["rollup", "roll up"],
+      "pattern": "supine",
+      "equipment": "none",
+      "cue": "Lie long with arms overhead, then reach the arms up and peel the spine off the mat one vertebra at a time to fold over the legs, then roll back down with the same control. Articulate through each vertebra.",
+      "watch": "Flinging up with momentum instead of rolling. Feet lifting off the mat — press the legs down and go only as far as control allows."
+    },
+    {
+      "id": "single-leg-stretch",
+      "name": "Single-Leg Stretch",
+      "aliases": ["single leg stretch", "one leg stretch"],
+      "pattern": "supine",
+      "equipment": "none",
+      "cue": "Curl the head and shoulders up, draw one knee toward the chest with both hands as the other leg extends long, then switch in a smooth controlled rhythm. Keep the upper body lifted and the belly hollow.",
+      "watch": "The lifted chest sinking as you tire. The extended leg dropping so low the low back arches — keep it higher."
+    },
+    {
+      "id": "double-leg-stretch",
+      "name": "Double-Leg Stretch",
+      "aliases": ["double leg stretch", "two leg stretch"],
+      "pattern": "supine",
+      "equipment": "none",
+      "cue": "Curled up, hug both knees in, then reach the arms overhead and the legs long together, before circling the arms around to draw the knees back in. Keep the head lifted and the midline strong as the limbs extend.",
+      "watch": "The low back popping up when the legs extend — raise the leg angle. Straining the neck rather than working from the center."
+    },
+    {
+      "id": "criss-cross",
+      "name": "Criss-Cross",
+      "aliases": ["criss cross", "bicycle", "crisscross"],
+      "pattern": "supine",
+      "equipment": "none",
+      "cue": "Hands behind the head, curled up, bring one knee in and rotate the opposite shoulder toward it as the other leg extends. Alternate with control, reaching the shoulder across and pausing briefly at each side.",
+      "watch": "Yanking on the neck with the hands. Rushing side to side without actually rotating the ribcage."
+    },
+    {
+      "id": "swan",
+      "name": "Swan",
+      "aliases": ["swan dive prep", "swan prep"],
+      "pattern": "prone",
+      "equipment": "none",
+      "cue": "Lie face down, hands under the shoulders, and lengthen the spine forward and up into a gentle back extension, keeping the low ribs near the mat. Lead with the crown and keep the shoulders drawing down.",
+      "watch": "Cranking the low back by pushing too high — keep it long and moderate. Shoulders hiking toward the ears."
+    },
+    {
+      "id": "swimming",
+      "name": "Swimming",
+      "aliases": ["swim", "prone swimming"],
+      "pattern": "prone",
+      "equipment": "none",
+      "cue": "Face down, arms and legs extended, lift them off the mat and flutter opposite arm and leg in small quick pulses while keeping the torso stable. Reach long in every direction, neck in line with the spine.",
+      "watch": "The low back overworking instead of the whole back-body — keep the lift modest. Holding the breath; keep it flowing."
+    },
+    {
+      "id": "spine-stretch-forward",
+      "name": "Spine Stretch Forward",
+      "aliases": ["spine stretch", "seated spine stretch"],
+      "pattern": "seated",
+      "equipment": "none",
+      "cue": "Sit tall with legs extended and feet flexed, arms reaching forward at shoulder height. Curl the spine forward and down over the legs one vertebra at a time, then restack to tall. Grow taller before you fold.",
+      "watch": "Collapsing from the hips instead of articulating the spine. Rounding the shoulders forward rather than reaching long."
+    },
+    {
+      "id": "saw",
+      "name": "Saw",
+      "aliases": ["the saw", "seated saw"],
+      "pattern": "seated",
+      "equipment": "none",
+      "cue": "Sit tall, legs wide, arms out to the sides. Rotate toward one leg and reach the opposite hand past the little toe, sawing forward, then restack and switch. Rotate from the waist, both sit bones grounded.",
+      "watch": "The opposite hip lifting off the mat as you reach. Twisting from the neck instead of the ribcage."
+    },
+    {
+      "id": "side-leg-lift",
+      "name": "Side-Leg Lift",
+      "aliases": ["side leg lift", "side lying leg lift", "side kick series"],
+      "pattern": "side-lying",
+      "equipment": "none",
+      "cue": "Lie on your side, body in one long line, and lift the top leg with control to about hip height, then lower slowly without letting the waist collapse. Keep the hips stacked and the movement smooth.",
+      "watch": "The top hip rolling backward — keep the leg slightly forward and hips stacked. Using momentum to swing the leg up."
+    },
+    {
+      "id": "rolling-like-a-ball",
+      "name": "Rolling Like a Ball",
+      "aliases": ["rolling like a ball", "ball roll", "rolling"],
+      "pattern": "rolling",
+      "equipment": "none",
+      "cue": "Balance just behind the sit bones, knees hugged in, chin gently toward the chest in a C-curve. Roll back to the shoulder blades and return to balance without the feet touching, keeping the shape round throughout.",
+      "watch": "Throwing the head back for momentum. Losing the C-curve so you thud instead of roll."
+    }
+  ]
+}
